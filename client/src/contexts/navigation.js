@@ -1,8 +1,6 @@
 import React from 'react';
 import { menu, links } from '../fixtures';
-import { connectMenuAndLinks } from '../utils/func';
-const result = connectMenuAndLinks(menu, links);
-console.log(result);
+
 const NavigationContext = React.createContext();
 
 function NavigationContextProvider({ children }) {
