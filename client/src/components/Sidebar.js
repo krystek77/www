@@ -1,6 +1,6 @@
 import { FaWindowClose } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
-import { pages } from '../fixtures';
+import { menu } from '../fixtures';
 
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useNavigationContext();

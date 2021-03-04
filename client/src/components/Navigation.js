@@ -1,25 +1,25 @@
 import { NavLink as Link } from 'react-router-dom';
 import { useNavigationContext } from '../contexts/navigation';
-import { pages } from '../fixtures';
+import { menu } from '../fixtures';
 
 function Navigation() {
   const { openSubmenu } = useNavigationContext();
   const displaySubmenu = (e) => {
-    const pageId = e.target.dataset.page;
-    openSubmenu(pageId);
+    const menuId = e.target.dataset.page;
+    openSubmenu(menuId);
   };
   return (
     <nav className='navigation'>
       <ul className='menu'>
-        {pages.map((page) => {
+        {menu.map((item) => {
           return (
             <li
               className='menu__item'
-              key={page.id}
+              key={item.id}
               onMouseOver={(e) => displaySubmenu(e)}
             >
-              <Link className='menu__link' to={page.to} data-page={page.id}>
-                {page.label}
+              <Link className='menu__link' to={item.to} data-page={item.id}>
+                {item.label}
               </Link>
             </li>
           );

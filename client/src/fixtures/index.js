@@ -1,2 +1,2 @@
-import { pages, links } from './pages';
-export { pages, links };
+import { menu, links } from './menu';
+export { menu, links };

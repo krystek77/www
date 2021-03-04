@@ -1,20 +1,20 @@
-export function connectPageAndLinks(pages, totalLinks) {
+export function connectMenuAndLinks(menu, totalLinks) {
   const result = [];
-  pages.forEach((page) => {
-    const allLinks = page.links.map((linkId) => {
+  menu.forEach((item) => {
+    const submenu = item.links.map((linkId) => {
       return totalLinks.find((link) => linkId === link.id);
     });
-    const id = page.id;
-    const label = page.label;
-    const to = page.to;
-    const links = [...allLinks];
-    const newPage = {
+    const id = item.id;
+    const label = item.label;
+    const to = item.to;
+    const links = [...submenu];
+    const newItemMenu = {
       id,
       label,
       to,
       links,
     };
-    result.push(newPage);
+    result.push(newItemMenu);
   });
   return result;
 }

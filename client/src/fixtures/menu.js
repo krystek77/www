@@ -1,4 +1,4 @@
-const pages = [
+const menu = [
   { id: '1', label: 'klienci', to: '/klienci', links: ['1', '2', '3', '4'] },
   {
     id: '2',
@@ -130,4 +130,4 @@ const links = [
   },
 ];
 
-export { pages, links };
+export { menu, links };

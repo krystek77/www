@@ -4,17 +4,18 @@ import { NavLink as Link } from 'react-router-dom';
 
 function Submenu() {
   const { isSubmenuOpen, allSubpages } = useNavigationContext();
-  const { page, links } = allSubpages;
+  const { menu, links } = allSubpages;
+  console.log(allSubpages);
   return isSubmenuOpen && links.length > 0 ? (
     <div className='submenu submenu--large'>
-      <Link to={page.to} className='submenu__title'>
-        {page.label}
+      <Link to={menu.to} className='submenu__title'>
+        {menu.label}
       </Link>
       <ul className='submenu__list'>
         {links.map((link) => {
           return (
-            <li className='submenu__item'>
-              <Link className='submenu__link' to={`${page.to}${link.to}`}>
+            <li className='submenu__item' key={link.id}>
+              <Link className='submenu__link' to={`${menu.to}${link.to}`}>
                 {link.isIcon ? (
                   <img
                     className='submenu__icon'

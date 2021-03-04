@@ -1,7 +1,7 @@
 import React from 'react';
-import { pages, links } from '../fixtures';
-import { connectPageAndLinks } from '../utils/func';
-const result = connectPageAndLinks(pages, links);
+import { menu, links } from '../fixtures';
+import { connectMenuAndLinks } from '../utils/func';
+const result = connectMenuAndLinks(menu, links);
 console.log(result);
 const NavigationContext = React.createContext();
 
@@ -19,13 +19,13 @@ function NavigationContextProvider({ children }) {
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
-  const openSubmenu = (pageId) => {
-    const page = pages.find((page) => page.id === pageId);
+  const openSubmenu = (menuId) => {
+    const page = menu.find((item) => item.id === menuId);
     const { label, to } = page;
     const allSublinks = page.links.map((linkId) => {
       return links.find((link) => link.id === linkId);
     });
-    const currentPage = { page: { label, to }, links: [...allSublinks] };
+    const currentPage = { menu: { label, to }, links: [...allSublinks] };
     setAllSubpages(currentPage);
     setIsSubmenuOpen(true);
   };
