@@ -5,7 +5,7 @@ import { NavLink as Link } from 'react-router-dom';
 function Submenu() {
   const { isSubmenuOpen, allSubpages } = useNavigationContext();
   const { menu, links } = allSubpages;
-  console.log(allSubpages);
+
   return isSubmenuOpen && links.length > 0 ? (
     <div className='submenu submenu--large'>
       <Link to={menu.to} className='submenu__title'>
