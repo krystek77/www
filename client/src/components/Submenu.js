@@ -1,86 +1,46 @@
 import { FaBars } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
+import { NavLink as Link } from 'react-router-dom';
+
 function Submenu() {
-  const { isSubmenuOpen } = useNavigationContext();
-  return isSubmenuOpen ? (
+  const { isSubmenuOpen, allSubpages } = useNavigationContext();
+  const { page, links } = allSubpages;
+  return isSubmenuOpen && links.length > 0 ? (
     <div className='submenu submenu--large'>
-      <a href='' className='submenu__title'>
-        Klienci
-      </a>
+      <Link to={page.to} className='submenu__title'>
+        {page.label}
+      </Link>
       <ul className='submenu__list'>
-        <li className='submenu__item'>
-          <a className='submenu__link' href='/'>
-            <FaBars />
-            <img
-              className='submenu__image'
-              src='hotele.png'
-              alt='obraz A'
-              width='150px'
-              height='93px'
-            />
-            <div className='submenu__description'>
-              <p className='submenu__title'>Hotele</p>
-              <p className='submenu__content'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum
-                hic doloremque ullam sunt ...
-              </p>
-            </div>
-          </a>
-        </li>
-        <li className='submenu__item'>
-          <a className='submenu__link' href='/'>
-            <img
-              className='submenu__image'
-              src='opieka-dlugotermninowa.png'
-              alt='obraz B'
-              width='150px'
-              height='93px'
-            />
-            <div className='submenu__description'>
-              <p className='submenu__title'>Opieka długoterminowa</p>
-              <p className='submenu__content'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum
-                hic doloremque ullam sunt ...
-              </p>
-            </div>
-          </a>
-        </li>
-        <li className='submenu__item'>
-          <a className='submenu__link' href='/'>
-            <img
-              className='submenu__image'
-              src='szpitale.png'
-              alt='obraz C'
-              width='150px'
-              height='93px'
-            />
-            <div className='submenu__description'>
-              <p className='submenu__title'>Szpitale</p>
-              <p className='submenu__content'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum
-                hic doloremque ullam sunt ...
-              </p>
-            </div>
-          </a>
-        </li>
-        <li className='submenu__item'>
-          <a className='submenu__link' href='/'>
-            <img
-              className='submenu__image'
-              src='zaklad-pracy.png'
-              alt='obraz D'
-              width='150px'
-              height='93px'
-            />
-            <div className='submenu__description'>
-              <p className='submenu__title'>Zakłady pracy</p>
-              <p className='submenu__content'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum
-                hic doloremque ullam sunt ...
-              </p>
-            </div>
-          </a>
-        </li>
+        {links.map((link) => {
+          return (
+            <li className='submenu__item'>
+              <Link className='submenu__link' to={`${page.to}${link.to}`}>
+                {link.isIcon ? (
+                  <img
+                    className='submenu__icon'
+                    src={`${link.image.src}.svg`}
+                    // alt={link.image.alt}
+                    width='150px'
+                    height='150px'
+                  />
+                ) : (
+                  <img
+                    className='submenu__image'
+                    src={`${link.image.src}.png`}
+                    // alt={link.image.alt}
+                    width='150px'
+                    height='93px'
+                  />
+                )}
+
+                <div className='submenu__description'>
+                  <p className='submenu__title'>{link.label}</p>
+                  <p className='submenu__content'>{link.description}</p>
+                </div>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   ) : null;

@@ -1,5 +1,7 @@
 import { FaWindowClose } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
+import { pages } from '../fixtures';
+
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useNavigationContext();
   return isSidebarOpen ? (
@@ -9,7 +11,7 @@ function Sidebar() {
           <FaWindowClose />
         </button>
         <div className='submenu'>
-          <a href='' className='submenu__title'>
+          <a href='/' className='submenu__title'>
             Klienci
           </a>
           <ul className='submenu__list'>
@@ -36,7 +38,7 @@ function Sidebar() {
           </ul>
         </div>
         <div className='submenu'>
-          <a href='' className='submenu__title'>
+          <a href='/' className='submenu__title'>
             Urządzenia pralnicze
           </a>
           <ul className='submenu__list'>

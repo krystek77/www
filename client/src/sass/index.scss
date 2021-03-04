@@ -303,9 +303,9 @@ img {
   background-color: $lightgrey;
   width: 100%;
   position: fixed;
-  top: 50%;
+  top: 170px;
   left: 50%;
-  transform: translate(-50%, -80%);
+  transform: translate(-50%);
   @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
     display: block;
   }

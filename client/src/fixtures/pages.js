@@ -20,9 +20,9 @@ const pages = [
     links: [],
   },
   { id: '6', label: 'pompy', to: '/pompy', links: [] },
-  { id: '7', label: 'chemia', to: '/chemia' },
+  { id: '7', label: 'chemia', to: '/chemia', links: [] },
   { id: '8', label: 'technologie', to: '/technologie', links: ['5', '6'] },
-  { id: '9', label: 'o nas', to: '/o-nas' },
+  { id: '9', label: 'o nas', to: '/o-nas', links: [] },
   { id: '10', label: 'kontakt', to: '/kontakt', links: [] },
 ];
 const links = [
@@ -32,7 +32,7 @@ const links = [
     description:
       'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
     image: { src: 'goscinnosc', alt: 'Hotele,pensjonaty' },
-    url: '/goscinnosc',
+    to: '/goscinnosc',
     isIcon: false,
   },
   {
@@ -44,7 +44,7 @@ const links = [
       src: 'opieka-dlugoterminowa',
       alt: 'Domy opieki, domy pomocy społecznej',
     },
-    url: '/opieka-dlugoterminowa',
+    to: '/opieka-dlugoterminowa',
     isIcon: false,
   },
   {
@@ -53,7 +53,7 @@ const links = [
     description:
       'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
     image: { src: 'szpital', alt: 'Szpitale, kliniki' },
-    url: '/szpitale',
+    to: '/szpitale',
     isIcon: false,
   },
   {
@@ -65,7 +65,7 @@ const links = [
       src: 'zaklad-pracy',
       alt: 'Firmy produkcyjne, spożywcze, mleczarnie, ubojnie',
     },
-    url: '/zaklady-pracy',
+    to: '/zaklady-pracy',
     isIcon: false,
   },
   {
@@ -77,7 +77,7 @@ const links = [
       src: 'cascade-drum',
       alt: 'cascade drum',
     },
-    url: '/cascade-drum',
+    to: '/cascade-drum',
     isIcon: true,
   },
   {
@@ -89,7 +89,7 @@ const links = [
       src: 'power-wash',
       alt: 'pawer-wash',
     },
-    url: '/power-wash',
+    to: '/power-wash',
     isIcon: true,
   },
   {
@@ -101,7 +101,7 @@ const links = [
       src: 'pralnice',
       alt: 'pralnice bębnowe, bez wirowania',
     },
-    url: '/pralnice',
+    to: '/pralnice',
     isIcon: true,
   },
   {
@@ -113,7 +113,7 @@ const links = [
       src: 'pralnicowirowki',
       alt: 'pralnicowirówki normalnoobrotowe, szybkoobrotowe, wysokoobrotowe',
     },
-    url: '/pralnicowirowki',
+    to: '/pralnicowirowki',
     isIcon: true,
   },
   {
@@ -125,7 +125,7 @@ const links = [
       src: 'suszarki',
       alt: 'suszarki bębnowe, komorowe, szafy suszące',
     },
-    url: '/suszarki',
+    to: '/suszarki',
     isIcon: true,
   },
 ];
