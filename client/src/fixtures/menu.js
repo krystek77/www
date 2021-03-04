@@ -1,3 +1,4 @@
+import { connectMenuAndLinks } from '../utils/func';
 const menu = [
   { id: '1', label: 'klienci', to: '/klienci', links: ['1', '2', '3', '4'] },
   {
@@ -130,4 +131,6 @@ const links = [
   },
 ];
 
-export { menu, links };
+const connectedMenuAndLinks = connectMenuAndLinks(menu, links);
+
+export { menu, links, connectedMenuAndLinks };
