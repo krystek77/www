@@ -1,6 +1,8 @@
 import { FaBars } from 'react-icons/fa';
+import { useNavigationContext } from '../contexts/navigation';
 function Submenu() {
-  return (
+  const { isSubmenuOpen } = useNavigationContext();
+  return isSubmenuOpen ? (
     <div className='submenu submenu--large'>
       <a href='' className='submenu__title'>
         Klienci
@@ -81,7 +83,7 @@ function Submenu() {
         </li>
       </ul>
     </div>
-  );
+  ) : null;
 }
 
 export default Submenu;

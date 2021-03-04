@@ -3,6 +3,7 @@ const NavigationContext = React.createContext();
 
 function NavigationContextProvider({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
+  const [isSubmenuOpen, setIsSubmenuOpen] = React.useState(true);
 
   const openSidebar = () => {
     setIsSidebarOpen(true);
@@ -10,10 +11,23 @@ function NavigationContextProvider({ children }) {
   const closeSidebar = () => {
     setIsSidebarOpen(false);
   };
+  const openSubmenu = () => {
+    setIsSubmenuOpen(true);
+  };
+  const closeSubmenu = () => {
+    setIsSubmenuOpen(false);
+  };
 
   return (
     <NavigationContext.Provider
-      value={{ isSidebarOpen, openSidebar, closeSidebar }}
+      value={{
+        isSidebarOpen,
+        openSidebar,
+        closeSidebar,
+        isSubmenuOpen,
+        openSubmenu,
+        closeSubmenu,
+      }}
     >
       {children}
     </NavigationContext.Provider>
