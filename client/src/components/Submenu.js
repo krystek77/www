@@ -1,4 +1,3 @@
-import { FaBars } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
 import { NavLink as Link } from 'react-router-dom';
 
@@ -20,7 +19,7 @@ function Submenu() {
                   <img
                     className='submenu__icon'
                     src={`${link.image.src}.svg`}
-                    // alt={link.image.alt}
+                    alt={link.image.alt}
                     width='150px'
                     height='150px'
                   />
@@ -28,7 +27,7 @@ function Submenu() {
                   <img
                     className='submenu__image'
                     src={`${link.image.src}.png`}
-                    // alt={link.image.alt}
+                    alt={link.image.alt}
                     width='150px'
                     height='93px'
                   />

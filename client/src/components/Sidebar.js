@@ -1,6 +1,7 @@
+import { NavLink as Link } from 'react-router-dom';
 import { FaWindowClose } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
-import { menu } from '../fixtures';
+import { connectedMenuAndLinks } from '../fixtures';
 
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useNavigationContext();
@@ -10,60 +11,30 @@ function Sidebar() {
         <button className='btn btn--close' type='button' onClick={closeSidebar}>
           <FaWindowClose />
         </button>
-        <div className='submenu'>
-          <a href='/' className='submenu__title'>
-            Klienci
-          </a>
-          <ul className='submenu__list'>
-            <li className='submenu__item'>
-              <a className='submenu__link' href='/'>
-                Hotele
-              </a>
-            </li>
-            <li className='submenu__item'>
-              <a className='submenu__link' href='/'>
-                Opieka długoterminowa
-              </a>
-            </li>
-            <li className='submenu__item'>
-              <a className='submenu__link' href='/'>
-                Szpitale
-              </a>
-            </li>
-            <li className='submenu__item'>
-              <a className='submenu__link' href='/'>
-                Zakłady pracy
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className='submenu'>
-          <a href='/' className='submenu__title'>
-            Urządzenia pralnicze
-          </a>
-          <ul className='submenu__list'>
-            <li className='submenu__item'>
-              <a className='submenu__link' href='/'>
-                Pralnice
-              </a>
-            </li>
-            <li className='submenu__item'>
-              <a className='submenu__link' href='/'>
-                Pralnicowirówki
-              </a>
-            </li>
-            <li className='submenu__item'>
-              <a className='submenu__link' href='/'>
-                Suszarki
-              </a>
-            </li>
-            <li className='submenu__item'>
-              <a className='submenu__link' href='/'>
-                Prasownice
-              </a>
-            </li>
-          </ul>
-        </div>
+        {connectedMenuAndLinks.map((item) => {
+          const { id, label, to, links } = item;
+
+          return (
+            <div className='submenu' key={id}>
+              <Link to={to} className='submenu__title'>
+                {label}
+              </Link>
+              {links.length > 0 ? (
+                <ul className='submenu__list'>
+                  {links.map((item) => {
+                    return (
+                      <li className='submenu__item' key={item.id}>
+                        <Link className='submenu__link' to={`${to}${item.to}`}>
+                          {item.label}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
       <div className='backdrop'></div>
     </aside>

@@ -23,8 +23,9 @@ const menu = [
   { id: '6', label: 'pompy', to: '/pompy', links: [] },
   { id: '7', label: 'chemia', to: '/chemia', links: [] },
   { id: '8', label: 'technologie', to: '/technologie', links: ['5', '6'] },
-  { id: '9', label: 'o nas', to: '/o-nas', links: [] },
-  { id: '10', label: 'kontakt', to: '/kontakt', links: [] },
+  { id: '9', label: 'wiadomości', to: '/wiadomosci', links: [] },
+  { id: '10', label: 'o nas', to: '/o-nas', links: [] },
+  { id: '11', label: 'kontakt', to: '/kontakt', links: [] },
 ];
 const links = [
   {

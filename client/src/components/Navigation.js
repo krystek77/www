@@ -1,7 +1,6 @@
 import { NavLink as Link } from 'react-router-dom';
 import { useNavigationContext } from '../contexts/navigation';
-import { menu, connectedMenuAndLinks } from '../fixtures';
-console.log(connectedMenuAndLinks);
+import { menu } from '../fixtures';
 
 function Navigation() {
   const { openSubmenu } = useNavigationContext();
