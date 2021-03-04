@@ -1,9 +1,11 @@
 import { FaBars } from 'react-icons/fa';
+import { useNavigationContext } from '../contexts/navigation';
 function Toolbar() {
+  const { openSidebar } = useNavigationContext();
   return (
     <div className='toolbar'>
       <img className='logo' src='logo.svg' alt='logo' width='80' height='50' />
-      <button className='btn btn--hamburger'>
+      <button className='btn btn--hamburger' onClick={openSidebar}>
         <FaBars />
       </button>
       <ul className='auth-menu'>

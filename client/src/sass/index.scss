@@ -194,7 +194,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
-  @media all and (min-width: map-get($map: $breakpoints, $key:1200 )) {
+  @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
     display: flex;
   }
   &__item {
@@ -244,7 +244,6 @@ img {
 }
 /* sidebar */
 .sidebar {
-  display: none;
   border: $temporaryBorder;
   background-color: transparent;
   position: fixed;
@@ -253,7 +252,12 @@ img {
   left: 0;
   padding: $gap * 4;
   z-index: 100;
+  @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
+    display: none;
+  }
   &__content {
+    max-width: 768px;
+    margin: 0 auto;
     padding: $gap * 3 $gap * 3 $gap * 2;
     border-radius: 0.4rem;
     border: $temporaryBorder;
@@ -291,6 +295,7 @@ img {
   }
 }
 .submenu--large {
+  display: none;
   max-width: 1200px;
   padding: $gap * 3 $gap * 3 $gap * 2;
   border-radius: 0.4rem;
@@ -300,15 +305,9 @@ img {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  @media screen and (min-width: map-get($map: $breakpoints, $key:768 )) {
-    transform: translate(-50%, -80%);
-  }
-  @media screen and (min-width: map-get($map: $breakpoints, $key:992 )) {
-    transform: translate(-50%, -60%);
-  }
-  @media screen and (min-width: map-get($map: $breakpoints, $key:1024 )) {
-    transform: translate(-50%, -80%);
+  transform: translate(-50%, -80%);
+  @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
+    display: block;
   }
   .submenu__title {
     width: auto;

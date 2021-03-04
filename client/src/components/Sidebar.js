@@ -1,9 +1,11 @@
 import { FaWindowClose } from 'react-icons/fa';
+import { useNavigationContext } from '../contexts/navigation';
 function Sidebar() {
-  return (
+  const { isSidebarOpen, closeSidebar } = useNavigationContext();
+  return isSidebarOpen ? (
     <aside className='sidebar'>
       <div className='sidebar__content'>
-        <button className='btn btn--close' type='button'>
+        <button className='btn btn--close' type='button' onClick={closeSidebar}>
           <FaWindowClose />
         </button>
         <div className='submenu'>
@@ -63,6 +65,6 @@ function Sidebar() {
       </div>
       <div className='backdrop'></div>
     </aside>
-  );
+  ) : null;
 }
 export default Sidebar;
