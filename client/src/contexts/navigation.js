@@ -1,15 +1,12 @@
 import React from 'react';
-import { menu, links } from '../fixtures';
+import { connectedMenuAndLinks } from '../fixtures';
 
 const NavigationContext = React.createContext();
 
 function NavigationContextProvider({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [isSubmenuOpen, setIsSubmenuOpen] = React.useState(false);
-  const [allSubpages, setAllSubpages] = React.useState({
-    page: { label: '', to: '' },
-    links: [],
-  });
+  const [menu, setMenu] = React.useState({});
 
   const openSidebar = () => {
     setIsSidebarOpen(true);
@@ -18,13 +15,10 @@ function NavigationContextProvider({ children }) {
     setIsSidebarOpen(false);
   };
   const openSubmenu = (menuId) => {
-    const page = menu.find((item) => item.id === menuId);
-    const { label, to } = page;
-    const allSublinks = page.links.map((linkId) => {
-      return links.find((link) => link.id === linkId);
-    });
-    const currentPage = { menu: { label, to }, links: [...allSublinks] };
-    setAllSubpages(currentPage);
+    const currentMenuItem = connectedMenuAndLinks.find(
+      (item) => item.id === menuId
+    );
+    setMenu(currentMenuItem);
     setIsSubmenuOpen(true);
   };
   const closeSubmenu = () => {
@@ -40,7 +34,7 @@ function NavigationContextProvider({ children }) {
         isSubmenuOpen,
         openSubmenu,
         closeSubmenu,
-        allSubpages,
+        menu,
       }}
     >
       {children}
