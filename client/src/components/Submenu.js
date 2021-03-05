@@ -1,11 +1,32 @@
+import React from 'react';
 import { useNavigationContext } from '../contexts/navigation';
 import { NavLink as Link } from 'react-router-dom';
 
 function Submenu() {
-  const { isSubmenuOpen, menu, closeSubmenu } = useNavigationContext();
+  const {
+    isSubmenuOpen,
+    menu,
+    closeSubmenu,
+    submenuDimension,
+  } = useNavigationContext();
+  const submenuRef = React.useRef(null);
 
+  React.useEffect(() => {
+    console.log('[submenu useEffect]', menu);
+    if (submenuRef.current) {
+      console.log(submenuRef.current);
+      const rectDOM = submenuRef.current.getBoundingClientRect();
+      const coordinates = {
+        left: rectDOM.left,
+        right: rectDOM.right,
+        bottom: rectDOM.bottom,
+      };
+      submenuDimension(coordinates);
+    }
+  }, [menu, submenuDimension]);
+  console.log('[submenu]');
   return isSubmenuOpen && menu && menu.links.length > 0 ? (
-    <div className='submenu submenu--large'>
+    <div className='submenu submenu--large' ref={submenuRef}>
       <Link to={menu.to} className='submenu__title' onClick={closeSubmenu}>
         {menu.label}
       </Link>

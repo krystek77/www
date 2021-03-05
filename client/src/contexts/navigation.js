@@ -7,6 +7,7 @@ function NavigationContextProvider({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = React.useState(false);
   const [menu, setMenu] = React.useState({});
+  const [submenuRectDOM, setSubmenuRectDOM] = React.useState({});
 
   const openSidebar = () => {
     setIsSidebarOpen(true);
@@ -18,12 +19,16 @@ function NavigationContextProvider({ children }) {
     const currentMenuItem = connectedMenuAndLinks.find(
       (item) => item.id === menuId
     );
-    setMenu(currentMenuItem);
     setIsSubmenuOpen(true);
+    setMenu(currentMenuItem);
   };
   const closeSubmenu = () => {
     setIsSubmenuOpen(false);
   };
+  const submenuDimension = React.useCallback((coordinates) => {
+    console.log(coordinates);
+    setSubmenuRectDOM(coordinates);
+  }, []);
 
   return (
     <NavigationContext.Provider
@@ -35,6 +40,9 @@ function NavigationContextProvider({ children }) {
         openSubmenu,
         closeSubmenu,
         menu,
+        submenuDimension,
+        setSubmenuRectDOM,
+        submenuRectDOM,
       }}
     >
       {children}
