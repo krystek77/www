@@ -9,7 +9,7 @@ function Toolbar() {
       <Link to='/' className='logo' onClick={closeSubmenu}>
         <img
           className='logo__image'
-          src='../assets/images/logo.svg'
+          src='../assets/images/logo_test.svg'
           alt='logo'
           width='80'
           height='50'
