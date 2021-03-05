@@ -247,7 +247,8 @@ img {
 /* navigation */
 .navigation {
   display: none;
-  border: $temporaryBorder;
+  // border: $temporaryBorder;
+  background-color: $lightgrey;
   padding: $gap $gap * 3;
   @media all and (min-width: map-get($map: $breakpoints, $key:1200 )) {
     display: block;
@@ -270,7 +271,7 @@ img {
     cursor: pointer;
     padding: $gap;
     text-transform: lowercase;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 1.5rem;
     color: $black;
     border-radius: 1.8rem;
