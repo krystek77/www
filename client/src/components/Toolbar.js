@@ -8,7 +8,7 @@ function Toolbar() {
       <Link to='/' className='logo'>
         <img
           className='logo__image'
-          src='./assets/images/logo.svg'
+          src='../assets/images/logo.svg'
           alt='logo'
           width='80'
           height='50'

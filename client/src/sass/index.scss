@@ -284,11 +284,19 @@ img {
     display: block;
     width: 100%;
     height: 100%;
+    padding-left: $gap * 2;
+  }
+  &__title.active {
+    background-color: $blue;
+    color: $lightgrey;
+    border-radius: 1.4rem;
   }
   &__list {
     width: 100%;
   }
-
+  &__item {
+    padding-left: $gap * 2;
+  }
   &__link {
     display: block;
     width: 100%;
@@ -298,6 +306,17 @@ img {
     font-weight: 300;
     color: $blue;
     white-space: nowrap;
+    position: relative;
+  }
+  &__link.active:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $grey;
   }
 }
 .submenu--large {
@@ -318,6 +337,7 @@ img {
   .submenu__title {
     margin-bottom: $gap * 2;
   }
+
   .submenu__subtitle {
     width: auto;
     display: block;
@@ -351,6 +371,7 @@ img {
       display: flex;
     }
   }
+
   .submenu__description {
     margin-left: $gap * 4;
   }
@@ -358,5 +379,16 @@ img {
     font-size: 1.4rem;
     line-height: 2rem;
     color: $black;
+  }
+  .submenu__link.active:after {
+    display: none;
+  }
+  .submenu__link.active {
+    .submenu__subtitle {
+      color: $lightgrey;
+      background-color: $blue;
+      text-align: center;
+      border-radius: 1.2rem;
+    }
   }
 }

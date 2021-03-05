@@ -23,7 +23,7 @@ function Submenu() {
                   <img
                     className='submenu__icon'
                     // src={`${link.image.src}.svg`}
-                    src='./assets/images/icon_test.svg'
+                    src='../assets/images/icon_test.svg'
                     alt={link.image.alt}
                     width='96px'
                     height='96px'
@@ -32,7 +32,7 @@ function Submenu() {
                   <img
                     className='submenu__image'
                     // src={`${link.image.src}.png`}
-                    src='./assets/images/client_thumbnail_test.png'
+                    src='../assets/images/client_thumbnail_test.png'
                     alt={link.image.alt}
                     width='150px'
                     height='93px'
