@@ -2,10 +2,10 @@ import { FaBars } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
 import { Link } from 'react-router-dom';
 function Toolbar() {
-  const { openSidebar } = useNavigationContext();
+  const { openSidebar, closeSubmenu } = useNavigationContext();
   return (
     <div className='toolbar'>
-      <Link to='/' className='logo'>
+      <Link to='/' className='logo' onClick={closeSubmenu}>
         <img
           className='logo__image'
           src='../assets/images/logo.svg'
