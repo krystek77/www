@@ -1,10 +1,6 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Fragment } from 'react';
-import Toolbar from './Toolbar';
-import Navigation from './Navigation';
-import Submenu from './Submenu';
-import Sidebar from './Sidebar';
-import Hero from './Hero';
+import { Toolbar, Navigation, Submenu, Sidebar, Hero } from '../components';
 
 function App() {
   return (
