@@ -3,20 +3,19 @@ import { NavLink as Link } from 'react-router-dom';
 
 function Submenu() {
   const { isSubmenuOpen, menu, closeSubmenu } = useNavigationContext();
-  const { label, to, links } = menu;
 
-  return isSubmenuOpen && links.length > 0 ? (
+  return isSubmenuOpen && menu && menu.links.length > 0 ? (
     <div className='submenu submenu--large'>
       <Link to={menu.to} className='submenu__title' onClick={closeSubmenu}>
-        {label}
+        {menu.label}
       </Link>
       <ul className='submenu__list'>
-        {links.map((link) => {
+        {menu.links.map((link) => {
           return (
             <li className='submenu__item' key={link.id}>
               <Link
                 className='submenu__link'
-                to={`${to}${link.to}`}
+                to={`${menu.to}${link.to}`}
                 onClick={closeSubmenu}
               >
                 {link.isIcon ? (
