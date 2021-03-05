@@ -1,6 +1,6 @@
 import { FaBars } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
-import { Link } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 function Toolbar() {
   const { openSidebar, closeSubmenu } = useNavigationContext();
   return (
@@ -19,19 +19,19 @@ function Toolbar() {
       </button>
       <ul className='auth-menu'>
         <li className='auth-menu__item'>
-          <a className='auth-menu__link' href='/'>
+          <Link className='auth-menu__link' to='/logout'>
             log out
-          </a>
+          </Link>
         </li>
         <li className='auth-menu__item'>
-          <a className='auth-menu__link' href='/'>
+          <Link className='auth-menu__link' to='/login'>
             log in
-          </a>
+          </Link>
         </li>
         <li className='auth-menu__item'>
-          <a className='auth-menu__link' href='/'>
+          <Link className='auth-menu__link' to='/signup'>
             sign up
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
