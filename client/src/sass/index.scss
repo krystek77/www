@@ -230,6 +230,12 @@ img {
       color: $lightgrey;
     }
   }
+  &--sidebar {
+    display: flex;
+    padding: $gap * 6 $gap * 3 0;
+    border-top: 1px solid $grey;
+    margin-top: $gap * 8;
+  }
 }
 /* navigation */
 .navigation {

@@ -1,7 +1,8 @@
 import { NavLink as Link } from 'react-router-dom';
-function Authmenu() {
+function Authmenu({ sidebar }) {
+  console.log(sidebar);
   return (
-    <ul className='auth-menu'>
+    <ul className={`auth-menu ${sidebar && 'auth-menu--sidebar'}`}>
       <li className='auth-menu__item'>
         <Link className='auth-menu__link' to='/logout'>
           log out

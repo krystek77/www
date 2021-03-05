@@ -2,6 +2,7 @@ import { NavLink as Link } from 'react-router-dom';
 import { FaWindowClose } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
 import { connectedMenuAndLinks } from '../fixtures';
+import { Authmenu } from '../components';
 
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useNavigationContext();
@@ -39,6 +40,7 @@ function Sidebar() {
             </div>
           );
         })}
+        <Authmenu sidebar={true} />
       </div>
       <div className='backdrop'></div>
     </aside>
