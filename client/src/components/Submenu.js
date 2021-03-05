@@ -2,19 +2,23 @@ import { useNavigationContext } from '../contexts/navigation';
 import { NavLink as Link } from 'react-router-dom';
 
 function Submenu() {
-  const { isSubmenuOpen, menu } = useNavigationContext();
+  const { isSubmenuOpen, menu, closeSubmenu } = useNavigationContext();
   const { label, to, links } = menu;
 
   return isSubmenuOpen && links.length > 0 ? (
     <div className='submenu submenu--large'>
-      <Link to={menu.to} className='submenu__title'>
+      <Link to={menu.to} className='submenu__title' onClick={closeSubmenu}>
         {label}
       </Link>
       <ul className='submenu__list'>
         {links.map((link) => {
           return (
             <li className='submenu__item' key={link.id}>
-              <Link className='submenu__link' to={`${to}${link.to}`}>
+              <Link
+                className='submenu__link'
+                to={`${to}${link.to}`}
+                onClick={closeSubmenu}
+              >
                 {link.isIcon ? (
                   <img
                     className='submenu__icon'
