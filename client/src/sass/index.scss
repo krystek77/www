@@ -192,6 +192,7 @@ img {
     }
   }
   &--action {
+    border: none;
     padding: $gap * 2 $gap * 4;
     border-radius: 2.3rem;
     text-transform: uppercase;
@@ -263,7 +264,7 @@ img {
     margin-right: $gap / 3;
   }
   &__link {
-    border: $temporaryBorder;
+    // border: $temporaryBorder;
     display: block;
     white-space: nowrap;
     cursor: pointer;
@@ -273,6 +274,10 @@ img {
     font-size: 1.5rem;
     color: $black;
     border-radius: 1.8rem;
+    &:hover {
+      background-color: $lightgrey;
+      color: $blue;
+    }
     &.active {
       background-color: $blue;
       color: $lightgrey;
@@ -444,7 +449,7 @@ img {
     align-items: flex-start;
   }
   &__content {
-    border: $temporaryBorder;
+    // border: $temporaryBorder;
     max-width: 480px;
     position: relative;
     z-index: 1;
