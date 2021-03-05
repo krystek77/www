@@ -18,15 +18,17 @@ function Submenu() {
                 {link.isIcon ? (
                   <img
                     className='submenu__icon'
-                    src={`${link.image.src}.svg`}
+                    // src={`${link.image.src}.svg`}
+                    src='./assets/images/icon_test.svg'
                     alt={link.image.alt}
-                    width='150px'
-                    height='150px'
+                    width='96px'
+                    height='96px'
                   />
                 ) : (
                   <img
                     className='submenu__image'
-                    src={`${link.image.src}.png`}
+                    // src={`${link.image.src}.png`}
+                    src='./assets/images/client_thumbnail_test.png'
                     alt={link.image.alt}
                     width='150px'
                     height='93px'
@@ -34,7 +36,7 @@ function Submenu() {
                 )}
 
                 <div className='submenu__description'>
-                  <p className='submenu__title'>{link.label}</p>
+                  <p className='submenu__subtitle'>{link.label}</p>
                   <p className='submenu__content'>{link.description}</p>
                 </div>
               </Link>

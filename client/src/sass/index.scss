@@ -209,6 +209,7 @@ img {
     font-weight: 600;
     white-space: nowrap;
     cursor: pointer;
+    font-size: 1.4rem;
   }
 }
 /* navigation */
@@ -244,7 +245,7 @@ img {
 }
 /* sidebar */
 .sidebar {
-  border: $temporaryBorder;
+  // border: $temporaryBorder;
   background-color: transparent;
   position: fixed;
   width: 100%;
@@ -258,15 +259,16 @@ img {
   &__content {
     max-width: 768px;
     margin: 0 auto;
-    padding: $gap * 3 $gap * 3 $gap * 2;
-    border-radius: 0.4rem;
-    border: $temporaryBorder;
-    background-color: $lightgrey;
+    padding: $gap * 4 $gap * 4 $gap * 8;
+    border-radius: 0.8rem;
+    // border: $temporaryBorder;
+    background-color: white;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
   }
 }
 /* submenu */
 .submenu {
-  border: $temporaryBorder;
+  // border: $temporaryBorder;
   // max-width: 1024px;
   &__title {
     color: $black;
@@ -297,10 +299,10 @@ img {
 .submenu--large {
   display: none;
   max-width: 1200px;
-  padding: $gap * 3 $gap * 3 $gap * 2;
-  border-radius: 0.4rem;
-  border: $temporaryBorder;
-  background-color: $lightgrey;
+  padding: $gap * 4 $gap * 4 $gap * 8;
+  border-radius: 0.8rem;
+  background-color: white;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
   width: 100%;
   position: fixed;
   top: 170px;
@@ -310,14 +312,23 @@ img {
     display: block;
   }
   .submenu__title {
+    margin-bottom: $gap * 2;
+  }
+  .submenu__subtitle {
     width: auto;
-    display: inline;
+    display: block;
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+    white-space: normal;
+    color: $black;
+    font-weight: 600;
+    margin-bottom: $gap * 2;
   }
   .submenu__list {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    row-gap: $gap * 2;
+    row-gap: $gap * 4;
     @media screen and (min-width: map-get($map: $breakpoints, $key:768 )) {
       grid-template-columns: 1fr 1fr;
       column-gap: $gap * 2;
@@ -327,12 +338,21 @@ img {
     }
   }
   .submenu__item {
-    border: 1px solid green;
+    border: $temporaryBorder;
+    padding: $gap * 2;
   }
   .submenu__link {
-    border: 1px solid red;
+    // border: 1px solid red;
     @media screen and (min-width: map-get($map: $breakpoints, $key:576 )) {
       display: flex;
     }
+  }
+  .submenu__description {
+    margin-left: $gap * 4;
+  }
+  .submenu__content {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: $black;
   }
 }

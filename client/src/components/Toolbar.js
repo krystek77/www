@@ -4,7 +4,13 @@ function Toolbar() {
   const { openSidebar } = useNavigationContext();
   return (
     <div className='toolbar'>
-      <img className='logo' src='logo.svg' alt='logo' width='80' height='50' />
+      <img
+        className='logo'
+        src='./assets/images/logo.svg'
+        alt='logo'
+        width='80'
+        height='50'
+      />
       <button className='btn btn--hamburger' onClick={openSidebar}>
         <FaBars />
       </button>
