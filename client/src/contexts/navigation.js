@@ -4,7 +4,7 @@ import { connectedMenuAndLinks } from '../fixtures';
 const NavigationContext = React.createContext();
 
 function NavigationContextProvider({ children }) {
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = React.useState(false);
   const [menu, setMenu] = React.useState({});
 

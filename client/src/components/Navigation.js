@@ -3,7 +3,7 @@ import { useNavigationContext } from '../contexts/navigation';
 import { menu } from '../fixtures';
 
 function Navigation() {
-  const { openSubmenu } = useNavigationContext();
+  const { openSubmenu, closeSubmenu } = useNavigationContext();
   const displaySubmenu = (e) => {
     const menuId = e.target.dataset.page;
     openSubmenu(menuId);
@@ -18,7 +18,12 @@ function Navigation() {
               key={item.id}
               onMouseOver={(e) => displaySubmenu(e)}
             >
-              <Link className='menu__link' to={item.to} data-page={item.id}>
+              <Link
+                className='menu__link'
+                to={item.to}
+                data-page={item.id}
+                onClick={closeSubmenu}
+              >
                 {item.label}
               </Link>
             </li>
