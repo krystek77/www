@@ -200,6 +200,12 @@ img {
     cursor: pointer;
     font-size: 1.4rem;
     width: max-content;
+    background-color: $red;
+    color: $lightgrey;
+    &:hover {
+      color: $red;
+      background-color: $lightgrey;
+    }
   }
 }
 /* auth-menu */
