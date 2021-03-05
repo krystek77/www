@@ -16,7 +16,7 @@ function Sidebar() {
 
           return (
             <div className='submenu' key={id}>
-              <Link to={to} className='submenu__title'>
+              <Link to={to} className='submenu__title' onClick={closeSidebar}>
                 {label}
               </Link>
               {links.length > 0 ? (
@@ -24,7 +24,11 @@ function Sidebar() {
                   {links.map((item) => {
                     return (
                       <li className='submenu__item' key={item.id}>
-                        <Link className='submenu__link' to={`${to}${item.to}`}>
+                        <Link
+                          className='submenu__link'
+                          to={`${to}${item.to}`}
+                          onClick={closeSidebar}
+                        >
                           {item.label}
                         </Link>
                       </li>
