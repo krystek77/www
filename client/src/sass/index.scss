@@ -164,9 +164,13 @@ img {
 }
 /* logo */
 .logo {
-  border: $temporaryBorder;
   display: block;
-  max-width: 100%;
+  width: 80px;
+  height: auto;
+  &__image {
+    display: block;
+    max-width: 100%;
+  }
 }
 /* btn */
 .btn {

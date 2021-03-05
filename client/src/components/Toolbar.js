@@ -1,16 +1,19 @@
 import { FaBars } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
+import { Link } from 'react-router-dom';
 function Toolbar() {
   const { openSidebar } = useNavigationContext();
   return (
     <div className='toolbar'>
-      <img
-        className='logo'
-        src='./assets/images/logo.svg'
-        alt='logo'
-        width='80'
-        height='50'
-      />
+      <Link to='/' className='logo'>
+        <img
+          className='logo__image'
+          src='./assets/images/logo.svg'
+          alt='logo'
+          width='80'
+          height='50'
+        />
+      </Link>
       <button className='btn btn--hamburger' onClick={openSidebar}>
         <FaBars />
       </button>
