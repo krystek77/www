@@ -4,6 +4,7 @@ import Toolbar from './Toolbar';
 import Navigation from './Navigation';
 import Submenu from './Submenu';
 import Sidebar from './Sidebar';
+import Hero from './Hero';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Toolbar />
         <Navigation />
+        <Hero />
         <Submenu />
         <Sidebar />
       </Router>
