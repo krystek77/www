@@ -433,7 +433,8 @@ img {
 
 .hero {
   border: $temporaryBorder;
-
+  padding-top: $gap * 8;
+  padding-bottom: $gap * 8;
   &__wrapper {
     border: $temporaryBorder;
     position: relative;
