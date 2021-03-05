@@ -12,9 +12,7 @@ function Submenu() {
   const submenuRef = React.useRef(null);
 
   React.useEffect(() => {
-    console.log('[submenu useEffect]', menu);
     if (submenuRef.current) {
-      console.log(submenuRef.current);
       const rectDOM = submenuRef.current.getBoundingClientRect();
       const coordinates = {
         left: rectDOM.left,
@@ -24,7 +22,6 @@ function Submenu() {
       submenuDimension(coordinates);
     }
   }, [menu, submenuDimension]);
-  console.log('[submenu]');
   return isSubmenuOpen && menu && menu.links.length > 0 ? (
     <div className='submenu submenu--large' ref={submenuRef}>
       <Link to={menu.to} className='submenu__title' onClick={closeSubmenu}>

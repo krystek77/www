@@ -26,7 +26,6 @@ function NavigationContextProvider({ children }) {
     setIsSubmenuOpen(false);
   };
   const submenuDimension = React.useCallback((coordinates) => {
-    console.log(coordinates);
     setSubmenuRectDOM(coordinates);
   }, []);
 

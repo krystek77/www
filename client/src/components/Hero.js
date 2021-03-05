@@ -1,7 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useNavigationContext } from '../contexts/navigation';
 function Hero() {
+  const { submenuRectDOM, closeSubmenu } = useNavigationContext();
+  const close = (e) => {
+    const posX = e.clientX;
+    const posY = e.clientY;
+    if (
+      posX < submenuRectDOM.left ||
+      posX > submenuRectDOM.right ||
+      posY > submenuRectDOM.bottom
+    ) {
+      closeSubmenu();
+    }
+  };
   return (
-    <header className='hero'>
+    <header className='hero' onMouseMove={(e) => close(e)}>
       <div className='hero__wrapper'>
         <article className='hero__content'>
           <h1 className='hero__title'>Poznaj lepsze wyposażenie pralnicze</h1>
