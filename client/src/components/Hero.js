@@ -21,7 +21,7 @@ function Hero() {
     }
   };
   React.useEffect(() => {
-    setData(() => hero);
+    setData(() => hero.slice(0, 4));
     const lastIndex = data.length - 1;
     if (currentIndex < 0) setCurrentIndex(lastIndex);
     if (currentIndex > lastIndex) setCurrentIndex(0);
@@ -67,6 +67,20 @@ function Hero() {
       >
         <FaArrowCircleRight />
       </button>
+      <div className='hero__indicators'>
+        {data.map((item, index) => {
+          return (
+            <button
+              type='button'
+              onClick={() => setCurrentIndex(index)}
+              className={`btn hero__indicator ${
+                index === currentIndex ? 'active' : ''
+              }`}
+              key={item.id}
+            ></button>
+          );
+        })}
+      </div>
       <div className='hero__wrapper'>
         {data.map((item, index) => {
           let currentClass = 'hero__slide--next';

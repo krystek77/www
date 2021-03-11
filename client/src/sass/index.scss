@@ -457,6 +457,25 @@ img {
   padding-bottom: $gap * 8;
   position: relative;
   overflow: hidden;
+  &__indicators {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: $gap * 2;
+    display: flex;
+  }
+  &__indicator {
+    width: 48px;
+    height: 7px;
+    margin-left: $gap;
+    margin-right: $gap;
+    font-size: 0.5rem;
+    border: none;
+    &.active {
+      background-color: $blue;
+    }
+  }
   &__wrapper {
     // border: $temporaryBorder;
     position: relative;
