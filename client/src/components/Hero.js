@@ -40,7 +40,7 @@ function Hero() {
           <div
             key={item.id}
             className={`hero__image ${
-              index === currentIndex && 'hero__image--show'
+              index === currentIndex ? 'hero__image--show' : ''
             }`}
           >
             <img

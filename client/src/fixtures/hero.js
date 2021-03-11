@@ -35,7 +35,7 @@ export const hero = [
       alt: 'Systemy MOP',
       src: 'mop_test',
       width: 820,
-      height: 512,
+      height: 600,
     },
   },
   {
