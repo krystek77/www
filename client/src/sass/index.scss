@@ -9,6 +9,7 @@ $gap: 0.5rem;
 $breakpoint-992: 992px;
 $fontSize: 1.7rem;
 $lineHeight: 2.4rem;
+$transition: transform 0.5s ease-in-out;
 
 $breakpoints: (
   576: 576px,
@@ -190,6 +191,24 @@ img {
     @media all and (min-width: map-get($map: $breakpoints, $key:1200 )) {
       display: none;
     }
+  }
+  &--prev,
+  &--next {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 300;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: $gap * 2;
+    color: $grey;
+  }
+  &--prev {
+    left: $gap * 2;
+  }
+  &--next {
+    right: $gap * 2;
   }
   &--action {
     border: none;
@@ -436,25 +455,50 @@ img {
   border: $temporaryBorder;
   padding-top: $gap * 8;
   padding-bottom: $gap * 8;
+  position: relative;
   &__wrapper {
-    border: $temporaryBorder;
+    // border: $temporaryBorder;
     position: relative;
     z-index: 0;
     padding: $gap * 2 $gap * 3;
     max-width: 1200px;
     margin: 0 auto;
     height: 480px;
-    overflow: hidden;
+    // overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
   }
+  &__slide {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    transition: $transition;
+    &--current {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    &--next {
+      transform: translateX(100%);
+    }
+    &--prev {
+      transform: translateX(-100%);
+    }
+  }
   &__content {
     // border: $temporaryBorder;
     max-width: 480px;
-    position: relative;
+    position: absolute;
     z-index: 1;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
     margin-left: $gap * 2;
     @media screen and (min-width: map-get($map: $breakpoints, $key:768 )) {
       margin-left: $gap * 8;

@@ -1,2 +1,3 @@
 import { menu, links, connectedMenuAndLinks } from './menu';
-export { menu, links, connectedMenuAndLinks };
+import { hero } from './hero';
+export { menu, links, connectedMenuAndLinks, hero };
