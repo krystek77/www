@@ -1,4 +1,5 @@
 import { NavLink as Link } from 'react-router-dom';
+import { FiLogOut, FiLogIn } from 'react-icons/fi';
 import { useNavigationContext } from '../contexts/navigation';
 function Authmenu({ sidebar }) {
   const { closeSidebar, closeSubmenu } = useNavigationContext();
@@ -10,12 +11,12 @@ function Authmenu({ sidebar }) {
     <ul className={`auth-menu ${sidebar && 'auth-menu--sidebar'}`}>
       <li className='auth-menu__item'>
         <Link className='auth-menu__link' to='/logout' onClick={close}>
-          log out
+          <FiLogOut />
         </Link>
       </li>
       <li className='auth-menu__item'>
         <Link className='auth-menu__link' to='/login' onClick={close}>
-          log in
+          <FiLogIn />
         </Link>
       </li>
       <li className='auth-menu__item'>
