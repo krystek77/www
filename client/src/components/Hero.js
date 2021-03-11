@@ -21,7 +21,7 @@ function Hero() {
     }
   };
   React.useEffect(() => {
-    setData(() => hero.slice(0, 4));
+    setData(hero);
     const lastIndex = data.length - 1;
     if (currentIndex < 0) setCurrentIndex(lastIndex);
     if (currentIndex > lastIndex) setCurrentIndex(0);
