@@ -35,6 +35,24 @@ function Hero() {
 
   return (
     <header className='hero' onMouseMove={(e) => close(e)}>
+      {data.map((item, index) => {
+        return (
+          <div
+            key={item.id}
+            className={`hero__image ${
+              index === currentIndex && 'hero__image--show'
+            }`}
+          >
+            <img
+              className='hero__bg'
+              src={`../assets/images/${item.image.src}.png`}
+              alt={item.image.alt}
+              width={item.image.width}
+              height={item.image.height}
+            />
+          </div>
+        );
+      })}
       <button
         type='button'
         className='btn btn--prev'
@@ -65,15 +83,6 @@ function Hero() {
                   {item.action}
                 </Link>
               </article>
-              <div className='hero__image'>
-                <img
-                  className='hero__bg'
-                  src={`../assets/images/${item.image.src}.png`}
-                  alt={item.image.alt}
-                  width={item.image.width}
-                  height={item.image.height}
-                />
-              </div>
             </div>
           );
         })}

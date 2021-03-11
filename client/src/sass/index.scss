@@ -456,6 +456,7 @@ img {
   padding-top: $gap * 8;
   padding-bottom: $gap * 8;
   position: relative;
+  overflow: hidden;
   &__wrapper {
     // border: $temporaryBorder;
     position: relative;
@@ -517,10 +518,14 @@ img {
   &__image {
     // border: $temporaryBorder;
     position: absolute;
+    display: none;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
     max-width: 820px;
     height: auto;
+    &--show {
+      display: block;
+    }
   }
 }
