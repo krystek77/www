@@ -21,29 +21,34 @@ function Hero() {
     }
   };
   React.useEffect(() => {
-    setData(hero);
-  }, []);
+    console.log('use');
+    setData(() => hero);
+    const lastIndex = data.length - 1;
+    if (currentIndex < 0) setCurrentIndex(lastIndex);
+    if (currentIndex > lastIndex) setCurrentIndex(0);
+    const timer = setTimeout(() => {
+      setCurrentIndex((index) => index + 1);
+    }, 5000);
+    return () => {
+      clearInterval(timer);
+      console.log('unm');
+    };
+  }, [currentIndex, data]);
 
-  const next = () => {
-    if (currentIndex + 1 < data.length) {
-      setCurrentIndex((current) => current + 1);
-    } else {
-      setCurrentIndex(0);
-    }
-  };
-  const prev = () => {
-    if (currentIndex === 0) {
-      setCurrentIndex(data.length - 1);
-    } else {
-      setCurrentIndex((current) => current - 1);
-    }
-  };
   return (
     <header className='hero' onMouseMove={(e) => close(e)}>
-      <button type='button' className='btn btn--prev' onClick={prev}>
+      <button
+        type='button'
+        className='btn btn--prev'
+        onClick={() => setCurrentIndex((current) => current - 1)}
+      >
         <FaArrowCircleLeft />
       </button>
-      <button type='button' className='btn btn--next' onClick={next}>
+      <button
+        type='button'
+        className='btn btn--next'
+        onClick={() => setCurrentIndex((current) => current + 1)}
+      >
         <FaArrowCircleRight />
       </button>
       <div className='hero__wrapper'>
