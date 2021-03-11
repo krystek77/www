@@ -21,7 +21,6 @@ function Hero() {
     }
   };
   React.useEffect(() => {
-    console.log('use');
     setData(() => hero);
     const lastIndex = data.length - 1;
     if (currentIndex < 0) setCurrentIndex(lastIndex);
@@ -31,7 +30,6 @@ function Hero() {
     }, 5000);
     return () => {
       clearInterval(timer);
-      console.log('unm');
     };
   }, [currentIndex, data]);
 
