@@ -6,7 +6,12 @@ function Toolbar() {
   const { openSidebar, closeSubmenu } = useNavigationContext();
   return (
     <div className='toolbar'>
-      <Link to='/' className='logo' onClick={closeSubmenu}>
+      <Link
+        to='/'
+        className='logo'
+        onClick={closeSubmenu}
+        title='www.pralma.pl'
+      >
         <img
           className='logo__image'
           src='../assets/images/logo_test.svg'
@@ -15,7 +20,11 @@ function Toolbar() {
           height='50'
         />
       </Link>
-      <button className='btn btn--hamburger' onClick={openSidebar}>
+      <button
+        className='btn btn--hamburger'
+        onClick={openSidebar}
+        title='open menu'
+      >
         <FaBars />
       </button>
       <Authmenu />

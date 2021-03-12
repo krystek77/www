@@ -10,14 +10,24 @@ function Authmenu({ sidebar }) {
   return (
     <ul className={`auth-menu ${sidebar && 'auth-menu--sidebar'}`}>
       <li className='auth-menu__item'>
-        <Link className='auth-menu__link' to='/logout' onClick={close}>
+        <Link
+          className='auth-menu__link'
+          to='/logout'
+          onClick={close}
+          title='log out'
+        >
           <button type='button' className='btn btn--auth'>
             <FiLogOut />
           </button>
         </Link>
       </li>
       <li className='auth-menu__item'>
-        <Link className='auth-menu__link' to='/login' onClick={close}>
+        <Link
+          className='auth-menu__link'
+          to='/login'
+          onClick={close}
+          title='log in'
+        >
           <button type='button' className='btn btn--auth'>
             <FiLogIn />
           </button>

@@ -9,7 +9,12 @@ function Sidebar() {
   return isSidebarOpen ? (
     <aside className='sidebar'>
       <div className='sidebar__content'>
-        <button className='btn btn--close' type='button' onClick={closeSidebar}>
+        <button
+          className='btn btn--close'
+          type='button'
+          onClick={closeSidebar}
+          title='close'
+        >
           <FaWindowClose />
         </button>
         {connectedMenuAndLinks.map((item) => {

@@ -36,6 +36,7 @@ function Submenu() {
                 to={`${menu.to}${link.to}`}
                 onClick={closeSubmenu}
               >
+                <p className='submenu__subtitle'>{link.label}</p>
                 {link.isIcon ? (
                   <img
                     className='submenu__icon'
@@ -51,15 +52,12 @@ function Submenu() {
                     // src={`${link.image.src}.png`}
                     src='../assets/images/client_thumbnail_test.png'
                     alt={link.image.alt}
-                    width='150px'
-                    height='93px'
+                    width='225px'
+                    height='140px'
                   />
                 )}
 
-                <div className='submenu__description'>
-                  <p className='submenu__subtitle'>{link.label}</p>
-                  <p className='submenu__content'>{link.description}</p>
-                </div>
+                <p className='submenu__description'>{link.description}</p>
               </Link>
             </li>
           );

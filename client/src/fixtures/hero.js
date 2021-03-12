@@ -1,7 +1,7 @@
 export const hero = [
   {
     id: '1',
-    title: 'Poznaj lepsze wyposażenie pralnicze',
+    title: 'Lepsze wyposażenie pralnicze',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
     action: 'Poznaj urządzenia',
@@ -14,7 +14,7 @@ export const hero = [
   },
   {
     id: '2',
-    title: 'Jeszcze wydajniej, jeszcze wygodniej',
+    title: 'Bardziej wydajnie, bardziej wygodnie',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
     action: 'Xcontrol FLEX',
@@ -40,7 +40,7 @@ export const hero = [
   },
   {
     id: '4',
-    title: 'Softwash, delikatne pranie jak nigdy',
+    title: 'Delikatne jak nigdy - SoftWash',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
     action: 'Softwash',

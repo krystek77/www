@@ -1,5 +1,6 @@
 /* variables */
 $primary: #ff0002;
+$darkprimary: #bb0001;
 $secondary: #4472ca;
 $dark: #001514;
 $light: #fbfffe;
@@ -170,10 +171,16 @@ img {
   font-size: 2 * $fontSize;
   &--close {
     margin-left: auto;
-    color: $dark;
+    color: rgba($color: $light, $alpha: 1);
+    &:hover {
+      color: rgba($color: $light, $alpha: 0.6);
+    }
   }
   &--hamburger {
     color: $light;
+    &:hover {
+      color: rgba($color: $light, $alpha: 0.6);
+    }
     @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
       display: none;
     }
@@ -181,6 +188,9 @@ img {
   &--auth {
     font-size: $fontSize * 1.18;
     color: $light;
+    &:hover {
+      color: rgba($color: $light, $alpha: 0.6);
+    }
   }
   &--action {
     padding: $gap * 2 $gap * 4;
@@ -189,7 +199,6 @@ img {
     font-weight: 600;
     font-size: $fontSize;
     white-space: nowrap;
-    cursor: pointer;
     width: max-content;
     background-color: $secondary;
     color: $light;
@@ -208,10 +217,12 @@ img {
     font-weight: 300;
     border-radius: 50%;
     background-color: transparent;
-    padding: $gap * 2;
-    color: $light;
-
-    @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
+    padding: $gap;
+    color: darken($color: $darkprimary, $amount: 5);
+    &:hover {
+      background-color: rgba($color: $light, $alpha: 0.1);
+    }
+    @media screen and (min-width: map-get($map: $breakpoints, $key: 1200)) {
       top: 50%;
     }
   }
@@ -255,15 +266,32 @@ img {
   }
   &__link {
     display: block;
+    &.active {
+      .btn--auth {
+        color: $primary;
+      }
+    }
   }
 }
 .auth-menu.auth-menu--sidebar {
   display: flex;
+  max-width: 320px;
+  margin: 0 auto;
   padding: $gap * 6 $gap * 3 0;
-  border-top: 1px solid $dark;
+  border-top: 1px solid rgba($color: $light, $alpha: 0.1);
   margin-top: $gap * 8;
   .btn--auth {
-    color: $dark;
+    color: $light;
+  }
+  .auth-menu__link:hover {
+    .btn--auth {
+      color: rgba($color: $light, $alpha: 0.6);
+    }
+  }
+  .auth-menu__link.active {
+    .btn--auth {
+      color: $primary;
+    }
   }
 }
 /* navigation */
@@ -290,6 +318,7 @@ img {
     margin-right: $gap / 3;
   }
   &__link {
+    position: relative;
     display: block;
     white-space: nowrap;
     text-transform: lowercase;
@@ -298,6 +327,12 @@ img {
     line-height: $lineHeight;
     color: $light;
     font-weight: 600;
+    &:hover {
+      color: rgba($color: $light, $alpha: 0.6);
+    }
+    &.active {
+      color: $primary;
+    }
   }
 }
 
@@ -308,7 +343,7 @@ img {
   width: 100%;
   top: 0;
   left: 0;
-  padding: $gap * 4;
+  padding: $gap * 20 $gap * 4 $gap * 4;
   z-index: 100;
   @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
     display: none;
@@ -318,7 +353,7 @@ img {
     margin: 0 auto;
     padding: $gap * 4 $gap * 4 $gap * 8;
     border-radius: 0.8rem;
-    background-color: $light;
+    background-color: $dark;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
   }
 }
@@ -326,21 +361,23 @@ img {
 /* submenu */
 .submenu {
   &__title {
-    color: $dark;
+    color: $light;
     text-transform: capitalize;
     font-weight: 600;
     white-space: nowrap;
     font-size: 2rem;
-    line-height: 2.85rem;
+    line-height: 3rem;
     display: block;
     width: 100%;
     height: 100%;
     padding-left: $gap * 2;
+    &:hover {
+      color: rgba($color: $light, $alpha: 0.8);
+    }
   }
+
   &__title.active {
-    background-color: $dark;
-    color: $light;
-    border-radius: 1.4rem;
+    color: $primary;
   }
   &__list {
     width: 100%;
@@ -353,11 +390,15 @@ img {
     width: 100%;
     height: 100%;
     font-size: $fontSize;
-    line-height: $lineHeight;
+    line-height: $lineHeight * 1.5;
     font-weight: 300;
-    color: $dark;
+    color: $light;
     white-space: nowrap;
     position: relative;
+    text-transform: lowercase;
+  }
+  &__link:hover {
+    color: rgba($color: $light, $alpha: 0.5);
   }
   &__link.active:after {
     display: block;
@@ -367,17 +408,18 @@ img {
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: $dark;
+    background-color: rgba($color: $primary, $alpha: 0.6);
   }
 }
 .submenu--large {
   display: none;
   max-width: 1200px;
   min-height: 600px;
-  padding: $gap * 4 $gap * 4 $gap * 8;
-  border-radius: 0.4rem;
+  padding: $gap * 8 $gap * 4 $gap * 8;
+  border-radius: 0.8rem;
   background-color: $light;
-  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 4px 0px rgba($color: $dark, $alpha: 0.3);
+  border: 1px solid $dark;
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -390,6 +432,18 @@ img {
   }
   .submenu__title {
     margin-bottom: $gap * 2;
+    color: $dark;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    &:hover {
+      color: rgba($color: $dark, $alpha: 0.3);
+    }
+    &.active {
+      color: $primary;
+      background-color: $light;
+      text-decoration: underline;
+    }
   }
 
   .submenu__subtitle {
@@ -398,9 +452,10 @@ img {
     font-size: 1.7rem;
     line-height: 2.4rem;
     white-space: normal;
-    color: $dark;
     font-weight: 600;
     margin-bottom: $gap * 2;
+    color: $dark;
+    text-align: center;
   }
   .submenu__list {
     display: grid;
@@ -412,37 +467,40 @@ img {
       column-gap: $gap * 2;
     }
     @media screen and (min-width: map-get($map: $breakpoints, $key:992 )) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-  .submenu__item {
-    border: $temporaryBorder;
-    padding: $gap * 2;
-  }
-  .submenu__link {
-    // border: 1px solid red;
-    @media screen and (min-width: map-get($map: $breakpoints, $key:576 )) {
-      display: flex;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 
+  .submenu__link {
+    min-height: 180px;
+    &:hover {
+      .submenu__subtitle,
+      .submenu__content {
+        color: rgba($color: $dark, $alpha: 0.6);
+      }
+    }
+  }
+  .submenu__image,
+  .submenu__icon {
+    margin: 0 auto $gap * 2;
+  }
+
   .submenu__description {
-    margin-left: $gap * 4;
-  }
-  .submenu__content {
-    font-size: 1.4rem;
-    line-height: 2rem;
+    font-size: $fontSize;
+    line-height: $lineHeight;
     color: $dark;
+    text-align: center;
+    margin-bottom: $gap * 2;
   }
+
   .submenu__link.active:after {
     display: none;
   }
   .submenu__link.active {
     .submenu__subtitle {
-      color: $light;
-      background-color: $dark;
-      text-align: center;
-      border-radius: 1.2rem;
+      color: $primary;
+      background-color: $light;
+      text-decoration: underline;
     }
   }
 }
@@ -476,11 +534,14 @@ img {
     margin-left: $gap;
     margin-right: $gap;
     border: none;
-    background-color: $light;
+    background-color: darken($color: $darkprimary, $amount: 5);
     border-radius: 3px;
     transition: $transition;
+    &:hover {
+      background-color: rgba($color: $light, $alpha: 0.1);
+    }
     &.active {
-      background-color: $secondary;
+      background-color: $primary;
     }
   }
   &__image {
