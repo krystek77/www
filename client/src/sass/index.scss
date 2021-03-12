@@ -560,6 +560,14 @@ img {
   }
   &__image {
     display: none;
+    position: absolute;
+    max-width: 820px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    &--show {
+      display: block;
+    }
   }
   &__wrapper {
     width: 100%;

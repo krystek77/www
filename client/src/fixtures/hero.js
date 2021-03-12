@@ -7,7 +7,7 @@ export const hero = [
     action: 'Poznaj urządzenia',
     image: {
       alt: 'Poznaj urządzenia',
-      src: 'poznaj_test',
+      src: '820x820',
       width: 512,
       height: 820,
     },
@@ -20,7 +20,7 @@ export const hero = [
     action: 'Xcontrol FLEX',
     image: {
       alt: 'Xcontrol FLEX',
-      src: 'flex_test',
+      src: '820x820',
       width: 820,
       height: 600,
     },
@@ -33,7 +33,7 @@ export const hero = [
     action: 'Systemy MOP',
     image: {
       alt: 'Systemy MOP',
-      src: 'mop_test',
+      src: '820x820',
       width: 820,
       height: 600,
     },
@@ -46,7 +46,7 @@ export const hero = [
     action: 'Softwash',
     image: {
       alt: 'SoftWash',
-      src: 'softwash_test',
+      src: '820x820',
       width: 512,
       height: 820,
     },
