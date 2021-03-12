@@ -22,7 +22,12 @@ const menu = [
   },
   { id: '6', label: 'pompy', to: '/pompy', links: [] },
   { id: '7', label: 'chemia', to: '/chemia', links: [] },
-  { id: '8', label: 'technologie', to: '/technologie', links: ['5', '6'] },
+  {
+    id: '8',
+    label: 'technologie',
+    to: '/technologie',
+    links: ['5', '6', '10', '11', '12'],
+  },
   { id: '9', label: 'wiadomości', to: '/wiadomosci', links: [] },
   { id: '10', label: 'o nas', to: '/o-nas', links: [] },
   { id: '11', label: 'kontakt', to: '/kontakt', links: [] },
@@ -128,6 +133,42 @@ const links = [
       alt: 'suszarki bębnowe, komorowe, szafy suszące',
     },
     to: '/suszarki',
+    isIcon: true,
+  },
+  {
+    id: '10',
+    label: 'TraceTech',
+    description:
+      'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
+    image: {
+      src: 'trace-tech',
+      alt: 'trace-tech',
+    },
+    to: '/trace-tech',
+    isIcon: true,
+  },
+  {
+    id: '11',
+    label: 'sensodry',
+    description:
+      'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
+    image: {
+      src: 'senso-dry',
+      alt: 'senso-dry',
+    },
+    to: '/senso-dry',
+    isIcon: true,
+  },
+  {
+    id: '12',
+    label: 'supereco',
+    description:
+      'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
+    image: {
+      src: 'super-eco',
+      alt: 'super-eco',
+    },
+    to: '/super-eco',
     isIcon: true,
   },
 ];

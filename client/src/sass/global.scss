@@ -431,7 +431,7 @@ img {
     display: block;
   }
   .submenu__title {
-    margin-bottom: $gap * 2;
+    margin-bottom: $gap * 8;
     color: $dark;
     text-transform: uppercase;
     font-weight: 600;
@@ -462,15 +462,14 @@ img {
     grid-template-columns: auto;
     grid-template-rows: auto;
     row-gap: $gap * 4;
-    @media screen and (min-width: map-get($map: $breakpoints, $key:768 )) {
-      grid-template-columns: 1fr 1fr;
-      column-gap: $gap * 2;
-    }
+    justify-items: center;
     @media screen and (min-width: map-get($map: $breakpoints, $key:992 )) {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
   }
-
+  .submenu__item {
+    max-width: 320px;
+  }
   .submenu__link {
     min-height: 180px;
     &:hover {
