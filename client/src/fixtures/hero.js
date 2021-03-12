@@ -51,4 +51,17 @@ export const hero = [
       height: 820,
     },
   },
+  {
+    id: '5',
+    title: 'Największy magazyn części zamiennych',
+    description:
+      'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
+    action: 'Części zamienne',
+    image: {
+      alt: 'czesci-zamienne',
+      src: '820x820',
+      width: 512,
+      height: 820,
+    },
+  },
 ];
