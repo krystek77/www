@@ -227,15 +227,16 @@ img {
     }
   }
   &--prev {
-    left: $gap * 2;
+    left: $gap * 4;
   }
   &--next {
-    right: $gap * 2;
+    right: $gap * 4;
   }
 }
 /* toolbar */
 .toolbar {
-  position: relative;
+  position: fixed;
+  width: 100%;
   z-index: 1;
   top: 0;
   left: 0;
@@ -300,9 +301,10 @@ img {
 /* navigation */
 .navigation {
   display: none;
-  position: relative;
+  position: fixed;
+  width: 100%;
   z-index: 1;
-  top: 0;
+  top: 70px;
   left: 0;
   padding: $gap $gap * 3;
   @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
@@ -517,10 +519,11 @@ img {
 }
 /* hero */
 .hero {
-  position: absolute;
-  top: 0;
+  position: relative;
+  z-index: 0;
+  top: 0px;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background: radial-gradient(
     50% 26.77% at 50% 35.85%,
