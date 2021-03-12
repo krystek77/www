@@ -282,7 +282,7 @@ img {
   max-width: 320px;
   margin: 0 auto;
   padding: $gap * 6 $gap * 3 0;
-  border-top: 1px solid rgba($color: $light, $alpha: 0.1);
+  border-top: 1px solid rgba($color: $dark, $alpha: 0.1);
   margin-top: $gap * 8;
   .btn--auth {
     color: $dark;
@@ -344,7 +344,7 @@ img {
 /* sidebar */
 .sidebar {
   background-color: transparent;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   left: 0;

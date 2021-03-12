@@ -5,7 +5,7 @@ const menu = [
     id: '2',
     label: 'urządzenia pralnicze',
     to: '/urzadzenia-pralnicze',
-    links: ['7', '8', '9'],
+    links: ['7', '8', '9', '13', '14', '15'],
   },
   { id: '3', label: 'transport', to: '/transport', links: [] },
   {
@@ -169,6 +169,42 @@ const links = [
       alt: 'super-eco',
     },
     to: '/super-eco',
+    isIcon: true,
+  },
+  {
+    id: '13',
+    label: 'Prasownice',
+    description:
+      'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
+    image: {
+      src: 'prasownice',
+      alt: 'nieckowe, walcowe, wielowalcowe',
+    },
+    to: '/prawownice',
+    isIcon: true,
+  },
+  {
+    id: '14',
+    label: 'Wirówki pralnicze',
+    description:
+      'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
+    image: {
+      src: 'wirowki-pralnicze',
+      alt: 'wolnostojące, automatyczne',
+    },
+    to: '/wirowki-pralnicze',
+    isIcon: true,
+  },
+  {
+    id: '15',
+    label: 'Bariery higieny',
+    description:
+      'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
+    image: {
+      src: 'bariery-higieny',
+      alt: 'bez wirowania, normalnoobrotowe, wsyokoobrotowe',
+    },
+    to: '/bariery-higieny',
     isIcon: true,
   },
 ];
