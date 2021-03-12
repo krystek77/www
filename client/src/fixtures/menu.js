@@ -48,7 +48,7 @@ const links = [
     description:
       'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
     image: {
-      src: 'opieka-dlugoterminowa',
+      src: 'domy_pomocy_spolecznej',
       alt: 'Domy opieki, domy pomocy społecznej',
     },
     to: '/opieka-dlugoterminowa',
@@ -59,7 +59,7 @@ const links = [
     label: 'Szpitale',
     description:
       'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
-    image: { src: 'szpital', alt: 'Szpitale, kliniki' },
+    image: { src: 'szpitale_i_kliniki', alt: 'Szpitale, kliniki' },
     to: '/szpitale',
     isIcon: false,
   },
@@ -69,7 +69,7 @@ const links = [
     description:
       'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
     image: {
-      src: 'zaklad-pracy',
+      src: 'przemysl',
       alt: 'Firmy produkcyjne, spożywcze, mleczarnie, ubojnie',
     },
     to: '/zaklady-pracy',

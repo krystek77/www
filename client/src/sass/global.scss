@@ -251,6 +251,9 @@ img {
   display: block;
   width: 80px;
   height: auto;
+  color: $light;
+  font-weight: 600;
+  font-size: $fontSize * 1.2;
 }
 /* auth menu */
 .auth-menu {
@@ -431,18 +434,22 @@ img {
     display: block;
   }
   .submenu__title {
-    margin-bottom: $gap * 8;
+    padding-bottom: $gap * 4;
+    margin-bottom: $gap * 4;
+    border-bottom: 1px solid $dark;
     color: $dark;
     text-transform: uppercase;
     font-weight: 600;
     text-align: center;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
     &:hover {
       color: rgba($color: $dark, $alpha: 0.3);
     }
     &.active {
-      color: $primary;
-      background-color: $light;
-      text-decoration: underline;
+      color: $secondary;
+      border-color: $secondary;
     }
   }
 
@@ -483,6 +490,9 @@ img {
   .submenu__icon {
     margin: 0 auto $gap * 2;
   }
+  .submenu__image {
+    border-radius: 0.4rem;
+  }
 
   .submenu__description {
     font-size: $fontSize;
@@ -497,9 +507,8 @@ img {
   }
   .submenu__link.active {
     .submenu__subtitle {
-      color: $primary;
+      color: $secondary;
       background-color: $light;
-      text-decoration: underline;
     }
   }
 }

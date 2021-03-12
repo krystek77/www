@@ -40,7 +40,7 @@ function Submenu() {
                 {link.isIcon ? (
                   <img
                     className='submenu__icon'
-                    // src={`${link.image.src}.svg`}
+                    // src={`../assets/images/${link.image.src}.svg`}
                     src='../assets/images/icon_test.svg'
                     alt={link.image.alt}
                     width='96px'
@@ -49,8 +49,8 @@ function Submenu() {
                 ) : (
                   <img
                     className='submenu__image'
-                    // src={`${link.image.src}.png`}
-                    src='../assets/images/client_thumbnail_test.png'
+                    src={`../assets/images/${link.image.src}.png`}
+                    // src='../assets/images/client_thumbnail_test.png'
                     alt={link.image.alt}
                     width='225px'
                     height='140px'
