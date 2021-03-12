@@ -159,6 +159,10 @@ img {
   display: block;
   max-width: 100%;
 }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .btn {
   display: flex;
   align-items: center;
@@ -625,4 +629,14 @@ img {
     color: $light;
     font-weight: 500;
   }
+}
+/* footer */
+.section {
+  padding: $gap * 6 $gap * 3;
+}
+.title {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: $gap * 4;
+  text-transform: uppercase;
 }
