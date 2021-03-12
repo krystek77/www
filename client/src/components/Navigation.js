@@ -11,7 +11,7 @@ function Navigation() {
     openSubmenu(menuId);
   };
   React.useEffect(() => {
-    window.addEventListener('scroll', function (e) {
+    const handleScroll = function (e) {
       if (this.scrollY > 70) {
         navigationRef.current.classList.add('navigation--fixed');
       } else {
@@ -19,7 +19,11 @@ function Navigation() {
           navigationRef.current.classList.remove('navigation--fixed');
         }
       }
-    });
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
   return (
     <nav className='navigation' ref={navigationRef}>
