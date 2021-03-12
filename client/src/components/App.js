@@ -12,6 +12,7 @@ function App() {
         <Submenu />
         <Sidebar />
       </Router>
+      <h1>Wiadomości</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
         assumenda veritatis magnam quaerat consectetur, tenetur hic debitis

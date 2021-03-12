@@ -235,7 +235,7 @@ img {
 }
 /* toolbar */
 .toolbar {
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 1;
   top: 0;
@@ -301,7 +301,7 @@ img {
 /* navigation */
 .navigation {
   display: none;
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 1;
   top: 70px;
@@ -309,6 +309,11 @@ img {
   padding: $gap $gap * 3;
   @media screen and (min-width: map-get($map: $breakpoints, $key:1200 )) {
     display: block;
+  }
+  &--fixed {
+    position: fixed;
+    transform: translateY(-70px);
+    background-color: $dark;
   }
 }
 /* menu */
