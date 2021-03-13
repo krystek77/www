@@ -705,6 +705,18 @@ img {
     font-size: 1.2rem;
     transition: all 0.3s ease-in-out;
   }
+  &__action {
+    height: 46px;
+    .btn-link__label {
+      background-color: $secondary;
+      padding: $gap * 2 $gap * 3;
+    }
+    .btn-link__arrow {
+      width: 46px;
+      background-color: $secondary;
+      padding: $gap * 2;
+    }
+  }
   &:hover {
     .btn-link__label,
     .btn-link__arrow {

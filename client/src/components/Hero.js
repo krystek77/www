@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { ButtonLink } from '../components';
 import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
 import { hero } from '../fixtures';
@@ -93,9 +93,11 @@ function Hero() {
               <article className='hero__content'>
                 <h1 className='hero__title'>{item.title}</h1>
                 <p className='hero__description'>{item.description}</p>
-                <Link className='btn btn--action' type='button' to='/'>
-                  {item.action}
-                </Link>
+                <ButtonLink
+                  label={item.action}
+                  to={'/'}
+                  type={'btn-link__action'}
+                />
               </article>
             </div>
           );
