@@ -5,5 +5,16 @@ import Navigation from './Navigation';
 import Submenu from './Submenu';
 import Sidebar from './Sidebar';
 import Hero from './Hero';
+import ButtonLink from './ButtonLink';
 import Footer from './Footer';
-export { App, Toolbar, Authmenu, Navigation, Submenu, Sidebar, Hero, Footer };
+export {
+  App,
+  Toolbar,
+  Authmenu,
+  Navigation,
+  Submenu,
+  Sidebar,
+  Hero,
+  ButtonLink,
+  Footer,
+};
