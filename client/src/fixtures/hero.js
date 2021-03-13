@@ -5,6 +5,7 @@ export const hero = [
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
     action: 'Poznaj urządzenia',
+    to: 'lepsze-wyposazenie-pralnicze',
     image: {
       alt: 'Poznaj urządzenia',
       src: '820x820',
@@ -18,6 +19,7 @@ export const hero = [
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
     action: 'Xcontrol FLEX',
+    to: 'bardziej-wydajnie-bardziej-wygodnie',
     image: {
       alt: 'Xcontrol FLEX',
       src: '820x820',
@@ -31,6 +33,7 @@ export const hero = [
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
     action: 'Systemy MOP',
+    to: 'rozwiazania-dedykowane-do-prania-mop',
     image: {
       alt: 'Systemy MOP',
       src: '820x820',
@@ -44,6 +47,7 @@ export const hero = [
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
     action: 'Softwash',
+    to: 'delikatne-jak-nigdy-softwash',
     image: {
       alt: 'SoftWash',
       src: '820x820',
@@ -53,10 +57,11 @@ export const hero = [
   },
   {
     id: '5',
-    title: 'Największy magazyn części zamiennych',
+    title: 'Największy magazyn części zamiennych do przemysłowych pralek',
     description:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloribus nam omnis rem facilis iure ducimus eos laborum. In ducimus esse officiis. Facere fugiat rem quod? Nisi ullam consequuntur voluptatem!',
     action: 'Części zamienne',
+    to: 'najwiekszy-magazyn-czesci-zamiennych-do-przemyslowych-pralek',
     image: {
       alt: 'czesci-zamienne',
       src: '820x820',

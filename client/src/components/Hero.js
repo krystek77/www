@@ -95,7 +95,7 @@ function Hero() {
                 <p className='hero__description'>{item.description}</p>
                 <ButtonLink
                   label={item.action}
-                  to={'/'}
+                  to={item.to}
                   type={'btn-link__action'}
                 />
               </article>
