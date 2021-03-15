@@ -213,6 +213,8 @@ option {
 textarea {
   display: block;
   outline: none;
+  resize: vertical;
+  width: 100%;
 }
 button {
   font-family: 'Quicksand', sans-serif;
@@ -772,6 +774,7 @@ button {
 /* form */
 .form {
   &__contact {
+    min-width: 360px;
     max-width: 768px;
     margin: 0 auto;
     @media screen and (min-width: map-get($map: $breakpoints, $key:768 )) {
