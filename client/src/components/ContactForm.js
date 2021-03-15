@@ -1,16 +1,37 @@
 import React from 'react';
 import Recaptcha from 'react-google-recaptcha';
 import { Button } from '../components';
+import { send } from 'emailjs-com';
 function ContactForm() {
-  const [inputs, setInputs] = React.useState({});
+  const [inputs, setInputs] = React.useState({
+    reason: '',
+    market: '',
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    company: '',
+    address: '',
+    country: 'Poland',
+    cooperation: '',
+    content: '',
+  });
   const [isNewsletter, setIsNewsletter] = React.useState(false);
   const recaptchaRef = React.useRef(null);
 
   const sendRequest = (e) => {
     e.preventDefault();
+    console.log(inputs);
     const token = recaptchaRef.current.getValue();
     if (token) {
-      console.log('You are human', token);
+      const serviceID = 'pralma';
+      const templateID = 'one';
+
+      send(serviceID, templateID, inputs, process.env.REACT_APP_EMAILJS_USER_ID)
+        .then((response) =>
+          console.log('SUCCESS', response.status, response.text)
+        )
+        .catch((error) => console.log('error'));
     }
   };
 
@@ -30,24 +51,25 @@ function ContactForm() {
           id='reason'
           name='reason'
           onChange={handleInput}
+          value={inputs.reason}
           required
         >
           <option className='select__option' value='' disabled>
             -- określ temat --
           </option>
-          <option className='select__option' value='1'>
+          <option className='select__option' value='Zapytanie o cenę'>
             Zapytanie o cenę
           </option>
-          <option className='select__option' value='2'>
+          <option className='select__option' value='Wsparcie techniczne'>
             Wsparcie techniczne
           </option>
-          <option className='select__option' value='3'>
+          <option className='select__option' value='Ogólne zapytanie'>
             Ogólne zapytanie
           </option>
-          <option className='select__option' value='4'>
+          <option className='select__option' value='Dokumenty księgowe'>
             Dokumenty księgowe
           </option>
-          <option className='select__option' value='5'>
+          <option className='select__option' value='Inne'>
             Inne
           </option>
         </select>
@@ -61,30 +83,31 @@ function ContactForm() {
           id='market'
           name='market'
           onChange={handleInput}
+          value={inputs.market}
           required
         >
           <option className='select__option' value='' disabled>
             -- określ rynek --
           </option>
-          <option className='select__option' value='1'>
+          <option className='select__option' value='Hotel, pensjonat'>
             Hotel, pensjonat
           </option>
-          <option className='select__option' value='2'>
+          <option className='select__option' value='Opieka długoterminowa'>
             Opieka długoterminowa
           </option>
-          <option className='select__option' value='3'>
+          <option className='select__option' value='Szpital'>
             Szpital
           </option>
-          <option className='select__option' value='4'>
+          <option className='select__option' value='Przemysł'>
             Przemysł
           </option>
-          <option className='select__option' value='5'>
+          <option className='select__option' value='Klub sportowy'>
             Klub sportowy
           </option>
-          <option className='select__option' value='6'>
+          <option className='select__option' value='Służba cywilna'>
             Służba cywilna
           </option>
-          <option className='select__option' value='7'>
+          <option className='select__option' value='Resturacja'>
             Resturacja
           </option>
         </select>
@@ -100,6 +123,7 @@ function ContactForm() {
           name='firstName'
           onChange={handleInput}
           required
+          value={inputs.firstName}
         />
       </div>
       <div className='input-group'>
@@ -112,6 +136,7 @@ function ContactForm() {
           id='lastName'
           name='lastName'
           onChange={handleInput}
+          value={inputs.lastName}
           required
         />
       </div>
@@ -124,6 +149,7 @@ function ContactForm() {
           type='tel'
           id='phone'
           name='phone'
+          value={inputs.phone}
           onChange={handleInput}
           required
         />
@@ -138,6 +164,7 @@ function ContactForm() {
           type='email'
           id='email'
           name='email'
+          value={inputs.email}
           onChange={handleInput}
           required
         />
@@ -152,6 +179,7 @@ function ContactForm() {
           type='text'
           id='company'
           name='company'
+          value={inputs.company}
           onChange={handleInput}
           required
         />
@@ -165,6 +193,7 @@ function ContactForm() {
           type='text'
           id='address'
           name='address'
+          value={inputs.address}
           onChange={handleInput}
           required
         />
@@ -178,28 +207,29 @@ function ContactForm() {
           className='select'
           id='country'
           name='country'
+          value={inputs.country}
           onChange={handleInput}
           required
         >
           <option className='select__option' value='' disabled>
             -- określ państwo --
           </option>
-          <option className='select__option' value='1'>
+          <option className='select__option' value='Poland'>
             Poland
           </option>
-          <option className='select__option' value='2'>
+          <option className='select__option' value='USA'>
             USA
           </option>
-          <option className='select__option' value='3'>
+          <option className='select__option' value='Russia'>
             Russia
           </option>
-          <option className='select__option' value='4'>
+          <option className='select__option' value='Germany'>
             Germany
           </option>
-          <option className='select__option' value='5'>
+          <option className='select__option' value='England'>
             England
           </option>
-          <option className='select__option' value='5'>
+          <option className='select__option' value='Other'>
             Other
           </option>
         </select>
@@ -212,15 +242,16 @@ function ContactForm() {
           className='select'
           id='cooperation'
           name='cooperation'
+          value={inputs.cooperation}
           onChange={handleInput}
           required
         >
           <option className='select__option' value='' disabled>
             -- wybierz odpowiedź --
           </option>
-          <option value='1'>Tak</option>
-          <option value='2'>Nie</option>
-          <option value='3'>Nie jeste pewny(a)</option>
+          <option value='Tak'>Tak</option>
+          <option value='Nie'>Nie</option>
+          <option value='Nie jestem pewny(a)'>Nie jestem pewny(a)</option>
         </select>
       </div>
       <div className='input-group'>
@@ -235,6 +266,7 @@ function ContactForm() {
           placeholder='Wpisz treść zapytania'
           required
           wrap='hard'
+          value={inputs.content}
           onChange={handleInput}
         />
       </div>
