@@ -5,7 +5,9 @@ import Navigation from './Navigation';
 import Submenu from './Submenu';
 import Sidebar from './Sidebar';
 import Hero from './Hero';
+import Button from './Button';
 import ButtonLink from './ButtonLink';
+import ContactForm from './ContactForm';
 import Footer from './Footer';
 export {
   App,
@@ -15,6 +17,8 @@ export {
   Submenu,
   Sidebar,
   Hero,
+  Button,
   ButtonLink,
+  ContactForm,
   Footer,
 };

@@ -7,6 +7,7 @@ import {
   Sidebar,
   Hero,
   ButtonLink,
+  ContactForm,
   Footer,
 } from '../components';
 
@@ -92,15 +93,7 @@ function App() {
         <section className='section'>
           <div className='container'>
             <h2 className='title'>Formularz kontaktowy</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum
-              quidem, quod recusandae laudantium in voluptate illum, esse
-              adipisci assumenda reiciendis illo et quam facilis animi
-              consequuntur impedit optio tempore officiis! Molestiae expedita
-              quia beatae iusto enim. Magnam autem, erferendis enim velit
-              veritatis doloribus accusamus consectetur.
-            </p>
-            <ButtonLink to='/' label='Wyślij' />
+            <ContactForm />
           </div>
         </section>
         <section className='section'>
