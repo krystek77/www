@@ -789,6 +789,7 @@ button {
         'cooperation cooperation'
         'content .'
         'newsletter .'
+        'recaptcha .'
         'submit .';
     }
     column-gap: $gap * 2;
@@ -831,6 +832,10 @@ button {
   }
   button {
     grid-area: submit;
+  }
+  .recaptcha {
+    grid-area: recaptcha;
+    margin-bottom: $gap * 2;
   }
 }
 

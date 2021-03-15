@@ -1,12 +1,17 @@
 import React from 'react';
+import Recaptcha from 'react-google-recaptcha';
 import { Button } from '../components';
 function ContactForm() {
   const [inputs, setInputs] = React.useState({});
   const [isNewsletter, setIsNewsletter] = React.useState(false);
+  const recaptchaRef = React.useRef(null);
 
   const sendRequest = (e) => {
     e.preventDefault();
-    console.log('request');
+    const token = recaptchaRef.current.getValue();
+    if (token) {
+      console.log('You are human', token);
+    }
   };
 
   const handleInput = (e) => {
@@ -14,7 +19,6 @@ function ContactForm() {
     const value = e.target.value;
     setInputs({ ...inputs, [name]: value });
   };
-
   return (
     <form className='form form__contact' onSubmit={sendRequest}>
       <div className='input-group'>
@@ -248,6 +252,12 @@ function ContactForm() {
         </label>
         <p className='info'>Bądź na bieżąco z promocjami oraz wiadomościami</p>
       </div>
+      {/** recaptcha */}
+      <Recaptcha
+        className='recaptcha'
+        ref={recaptchaRef}
+        sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+      />
       <Button label='Wyślij' btnType='submit' />
     </form>
   );
