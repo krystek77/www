@@ -8,6 +8,7 @@ import Hero from './Hero';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
 import ContactForm from './ContactForm';
+import NewsletterForm from './NewsletterForm';
 import Footer from './Footer';
 export {
   App,
@@ -20,5 +21,6 @@ export {
   Button,
   ButtonLink,
   ContactForm,
+  NewsletterForm,
   Footer,
 };

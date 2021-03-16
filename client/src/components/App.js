@@ -8,6 +8,7 @@ import {
   Hero,
   ButtonLink,
   ContactForm,
+  NewsletterForm,
   Footer,
 } from '../components';
 
@@ -108,16 +109,10 @@ function App() {
             <ButtonLink to='/' label='Wszystkie pytania' />
           </div>
         </section>
-        <section className='section'>
+        <section className='section section__newsletter'>
           <div className='container'>
-            <h2 className='title'>Bądź na bieżąco</h2>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo iure
-              perferendis ipsum eius laboriosam delectus id, libero dolore,
-              praesentium excepturi facilis nisi tempora nostrum aspernatur quam
-              est, doloremque quisquam sit.
-            </p>
-            <ButtonLink to='/' label='Zapisz się' />
+            <h2 className='title'>Chcesz być na bieżąco</h2>
+            <NewsletterForm />
           </div>
         </section>
         <Footer />
