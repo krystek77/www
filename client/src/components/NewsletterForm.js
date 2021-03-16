@@ -20,18 +20,12 @@ function NewsletterForm() {
       <div className='newsletter__image'>
         <img
           className='image'
-          src='../assets/images/newsletter.svg'
+          src='../assets/images/newsletter_test.svg'
           alt='newsletter'
+          width='96px'
+          height='76px'
         />
-        <div className='newsletter__content'>
-          <p className='newsletter__text'>
-            Zapisz się na newsletter, aby otrzymywać najnowsze wiadomości od
-            Pralma oraz informacje o specjalnych ofertach i promocjach.
-          </p>
-          <small className='info'>Gwarantujemy zero spamu</small>
-        </div>
       </div>
-
       <form className='form form__newsletter' onSubmit={signupNewsletter}>
         <div className='input-group'>
           <label className='input-label' htmlFor='userName'>

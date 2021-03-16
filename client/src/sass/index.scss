@@ -697,6 +697,29 @@ button {
 /* section */
 .section {
   padding: $gap * 12 $gap * 3;
+  &__newsletter {
+    background-color: lighten($color: $primary, $amount: 30);
+    .title {
+      text-align: center;
+    }
+    .text,
+    .info {
+      color: $light;
+      font-weight: 500;
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: $fontSize * 1.2;
+      line-height: $lineHeight * 1.2;
+    }
+    .info {
+      display: block;
+      margin-bottom: $gap * 10;
+      font-weight: 600;
+      font-size: $fontSize;
+      color: $dark;
+    }
+  }
 }
 .title {
   font-weight: 700;
@@ -851,11 +874,16 @@ button {
     }
   }
   &__newsletter {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    @media screen and (min-width: map-get($map: $breakpoints, $key: 992)) {
-      padding: $gap * 20;
+    padding: $gap * 10 $gap * 5 $gap * 5;
+    border-radius: 0.6rem;
+    border: 1px solid lighten($color: $primary, $amount: 26);
+    .input {
+      background-color: $light;
+      border-color: lighten($color: $primary, $amount: 26);
+    }
+    .input-info {
+      font-size: 1rem;
+      padding-left: $gap;
     }
   }
 }
@@ -885,45 +913,14 @@ button {
 }
 /* newsletter */
 .newsletter {
-  max-width: 576px;
+  position: relative;
+  max-width: 360px;
   margin: 0 auto;
-  display: grid;
-  row-gap: $gap * 4;
-  @media screen and (min-width: map-get($map: $breakpoints, $key: 992)) {
-    max-width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-  }
   &__image {
-    @media screen and (min-width: map-get($map: $breakpoints, $key: 992)) {
-      position: relative;
-    }
-  }
-  &__content {
-    background-color: $secondary;
-    color: $light;
-    padding: $gap * 2 $gap * 4;
-    margin-top: $gap * 4;
-    border-radius: 0.4rem;
-    font-weight: 500;
-
-    @media screen and (min-width: map-get($map: $breakpoints, $key: 992)) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      margin-top: 0;
-      max-width: 320px;
-      .newsletter__text {
-        font-size: 1.5rem;
-        line-height: 2.1rem;
-      }
-    }
-  }
-  &__text {
-    margin-bottom: $gap * 2;
-  }
-  .info {
-    font-size: 1.5rem;
-    font-style: italic;
-    font-weight: 600;
+    width: 96px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
 }

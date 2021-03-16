@@ -112,6 +112,11 @@ function App() {
         <section className='section section__newsletter'>
           <div className='container'>
             <h2 className='title'>Chcesz być na bieżąco</h2>
+            <p className='text'>
+              Zapisz się na newsletter, aby otrzymywać najnowsze wiadomości od
+              Pralma oraz informacje o specjalnych ofertach i promocjach.
+            </p>
+            <small className='info'>Gwarantujemy zero spamu</small>
             <NewsletterForm />
           </div>
         </section>
