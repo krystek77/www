@@ -714,7 +714,7 @@ button {
     }
     .info {
       display: block;
-      margin-bottom: $gap * 10;
+      margin-bottom: $gap * 15;
       font-weight: 600;
       font-size: $fontSize;
       color: $dark;
@@ -879,11 +879,11 @@ button {
     border: 1px solid lighten($color: $primary, $amount: 26);
     .input {
       background-color: $light;
+      border-width: 2px;
       border-color: lighten($color: $primary, $amount: 26);
-    }
-    .input-info {
-      font-size: 1rem;
-      padding-left: $gap;
+      &:focus {
+        border-color: $dark;
+      }
     }
   }
 }
@@ -891,6 +891,10 @@ button {
 /* input-group */
 .input-group {
   margin-bottom: $gap;
+  .input-info {
+    font-size: 1rem;
+    padding-left: $gap;
+  }
   &__grid {
     display: grid;
     grid-template-columns: 32px auto;
@@ -921,6 +925,7 @@ button {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-60%);
+    background-color: lighten($color: $primary, $amount: 30);
   }
 }
