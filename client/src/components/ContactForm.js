@@ -4,7 +4,7 @@ import { Button } from '../components';
 import { send } from 'emailjs-com';
 function ContactForm() {
   const [inputs, setInputs] = React.useState({
-    reason: '',
+    reason: 'Zapytanie o cenę',
     market: '',
     firstName: '',
     lastName: '',
@@ -44,7 +44,7 @@ function ContactForm() {
     <form className='form form__contact' onSubmit={sendRequest}>
       <div className='input-group'>
         <label className='input-label' htmlFor='reason'>
-          Temat <span className='input-required'>*</span>
+          Temat
         </label>
         <select
           className='select'
@@ -52,7 +52,6 @@ function ContactForm() {
           name='reason'
           onChange={handleInput}
           value={inputs.reason}
-          required
         >
           <option className='select__option' value='' disabled>
             -- określ temat --
@@ -76,7 +75,7 @@ function ContactForm() {
       </div>
       <div className='input-group'>
         <label className='input-label' htmlFor='market'>
-          Rynek <span className='input-required'>*</span>
+          Rynek
         </label>
         <select
           className='select'
@@ -84,7 +83,6 @@ function ContactForm() {
           name='market'
           onChange={handleInput}
           value={inputs.market}
-          required
         >
           <option className='select__option' value='' disabled>
             -- określ rynek --
@@ -128,7 +126,7 @@ function ContactForm() {
       </div>
       <div className='input-group'>
         <label className='input-label' htmlFor='lastName'>
-          Nazwisko <span className='input-required'>*</span>
+          Nazwisko
         </label>
         <input
           className='input'
@@ -137,7 +135,6 @@ function ContactForm() {
           name='lastName'
           onChange={handleInput}
           value={inputs.lastName}
-          required
         />
       </div>
       <div className='input-group'>
@@ -172,7 +169,7 @@ function ContactForm() {
       </div>
       <div className='input-group'>
         <label className='input-label' htmlFor='company'>
-          Firma / Instytucja <span className='input-required'>*</span>
+          Firma / Instytucja
         </label>
         <input
           className='input'
@@ -181,12 +178,11 @@ function ContactForm() {
           name='company'
           value={inputs.company}
           onChange={handleInput}
-          required
         />
       </div>
       <div className='input-group'>
         <label className='input-label' htmlFor='address'>
-          Adres <span className='input-required'>*</span>
+          Adres
         </label>
         <input
           className='input'
@@ -195,13 +191,12 @@ function ContactForm() {
           name='address'
           value={inputs.address}
           onChange={handleInput}
-          required
         />
         <small className='input-info'>25-651 Kielce, ul.Górnicza 49a</small>
       </div>
       <div className='input-group'>
         <label className='input-label' htmlFor='country'>
-          Państwo <span className='input-required'>*</span>
+          Państwo
         </label>
         <select
           className='select'
@@ -209,7 +204,6 @@ function ContactForm() {
           name='country'
           value={inputs.country}
           onChange={handleInput}
-          required
         >
           <option className='select__option' value='' disabled>
             -- określ państwo --
@@ -236,7 +230,7 @@ function ContactForm() {
       </div>
       <div className='input-group'>
         <label className='input-label' htmlFor='cooperation'>
-          Czy współpracowaliśmy <span className='input-required'>*</span>
+          Czy współpracowaliśmy
         </label>
         <select
           className='select'
@@ -244,7 +238,6 @@ function ContactForm() {
           name='cooperation'
           value={inputs.cooperation}
           onChange={handleInput}
-          required
         >
           <option className='select__option' value='' disabled>
             -- wybierz odpowiedź --
