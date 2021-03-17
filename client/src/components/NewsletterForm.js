@@ -13,6 +13,19 @@ function NewsletterForm() {
   };
   const signupNewsletter = async (e) => {
     e.preventDefault();
+    const userData = {
+      name: userName,
+      email: userEmail,
+    };
+    const response = await fetch('http://localhost:5000/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
+    const data = await response.json();
+    console.log(data);
   };
   return (
     <div className='newsletter'>
@@ -36,7 +49,7 @@ function NewsletterForm() {
             id='userName'
             name='userName'
             onChange={handleName}
-            required
+            // required
             value={userName}
           />
           <small className='input-info'>np. nowak77</small>
@@ -52,7 +65,7 @@ function NewsletterForm() {
             name='userEmail'
             value={userEmail}
             onChange={handleEmail}
-            required
+            // required
           />
           <small className='input-info'>np. nowak@onet.pl</small>
         </div>
