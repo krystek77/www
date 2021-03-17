@@ -11,9 +11,8 @@ function NewsletterForm() {
     const value = e.target.value;
     setUserEmail(value);
   };
-  const signupNewsletter = (e) => {
+  const signupNewsletter = async (e) => {
     e.preventDefault();
-    console.log('Zarejestruj się do newslettera');
   };
   return (
     <div className='newsletter'>
