@@ -74,10 +74,10 @@ function NewsletterForm() {
           />
         </div>
         <div className='message__content'>
-          <p className='message__text'>Sukces!</p>
+          <p className='message__text'>Newsletter!</p>
           <p className='message__text'>Dziękujemy, że dołączyłeś do nas.</p>
           <p className='message__text'>
-            A teraz zajrzyj na swoją skrzynkę email i odbierz kupon rabatowy.
+            Zajrzyj na swoją skrzynkę email i odbierz kupon rabatowy.
           </p>
         </div>
       </div>
@@ -95,6 +95,7 @@ function NewsletterForm() {
           />
         </div>
         <div className='message__content'>
+          <p className='message__text'>Newsletter!</p>
           <p className='message__text'>Już z nami jesteś. Dziękujemy...</p>
         </div>
       </div>
