@@ -32,9 +32,33 @@ function ContactForm() {
           console.log('SUCCESS', response.status, response.text)
         )
         .catch((error) => console.log('error'));
+
+      if (isNewsletter) {
+        const userData = {
+          name: inputs.firstName,
+          email: inputs.email,
+        };
+        fetch('http://localhost:5000/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((response) => {
+            console.log(response);
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            //0 - new_members_total_created = 0 if email exists
+            //1 - if subscribed successfully
+            //{message: "Failed"} if name or email is empty
+          })
+          .catch((error) => console.log(error));
+      }
     }
   };
-
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -120,7 +144,7 @@ function ContactForm() {
           id='firstName'
           name='firstName'
           onChange={handleInput}
-          required
+          // required
           value={inputs.firstName}
         />
       </div>

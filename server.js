@@ -19,12 +19,11 @@ clientMailchimp.setConfig({
 app.post('/subscribe', async (req, res) => {
   const { name, email } = req.body;
   if (!name || !email) {
-    res.json({ messege: 'Failed' });
-    return;
+    res.json({ message: 'Wszystkie pola muszą być wypełnione' });
   }
   try {
     const response = await clientMailchimp.lists.batchListMembers(
-      '1fac6de29a',
+      '384c9cc094',
       {
         members: [
           {
