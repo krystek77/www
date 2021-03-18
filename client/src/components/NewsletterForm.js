@@ -52,7 +52,7 @@ function NewsletterForm() {
           setSubscribed(2);
           setUserEmail('');
           setUserName('');
-        }, 3000);
+        }, 4000);
       } catch (error) {
         console.log(error);
       }

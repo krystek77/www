@@ -2,6 +2,10 @@ import React from 'react';
 import Recaptcha from 'react-google-recaptcha';
 import { Button } from '../components';
 import { send } from 'emailjs-com';
+
+const emailPattern = /([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/;
+const phonePattern = /^(\+\d{2,})(\d{3})(\d{4})$/;
+
 function ContactForm() {
   const [inputs, setInputs] = React.useState({
     reason: 'Zapytanie o cenę',
@@ -17,52 +21,92 @@ function ContactForm() {
     content: '',
   });
   const [isNewsletter, setIsNewsletter] = React.useState(false);
+  const [errors, setErrors] = React.useState({});
+  const [isSentRequest, setIsSentRequest] = React.useState(false);
+  const [subscribed, setSubscribed] = React.useState(2);
   const recaptchaRef = React.useRef(null);
 
   const sendRequest = (e) => {
     e.preventDefault();
-    console.log(inputs);
-    const token = recaptchaRef.current.getValue();
-    if (token) {
-      const serviceID = 'pralma';
-      const templateID = 'one';
+    const errors = {};
+    if (!inputs.firstName) errors.firstName = 'Imię nie może być puste';
+    if (!inputs.email) errors.email = 'Email nie może być pusty';
+    if (!inputs.phone) errors.phone = 'Musisz podać telefon';
+    if (!inputs.content) errors.content = 'Wiadomość powinna posiadać treść';
 
-      send(serviceID, templateID, inputs, process.env.REACT_APP_EMAILJS_USER_ID)
-        .then((response) =>
-          console.log('SUCCESS', response.status, response.text)
+    if (!inputs.phone.match(phonePattern))
+      errors.phone = 'Wpisany telefon jest niepoprawny';
+    if (!inputs.email.match(emailPattern))
+      errors.email = 'Wpisany email jest niepoprawny';
+    if (inputs.content.length < 10)
+      errors.content = 'Wiadomość musi mieć co najmniej 10 znaków';
+
+    if (!Object.keys(errors).length) {
+      const token = recaptchaRef.current.getValue();
+      if (token) {
+        const serviceID = 'pralma';
+        const templateID = 'one';
+
+        send(
+          serviceID,
+          templateID,
+          inputs,
+          process.env.REACT_APP_EMAILJS_USER_ID
         )
-        .catch((error) => console.log('error'));
-
-      if (isNewsletter) {
-        const userData = {
-          name: inputs.firstName,
-          email: inputs.email,
-        };
-        fetch('http://localhost:5000/subscribe', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(userData),
-        })
           .then((response) => {
-            console.log(response);
-            return response.json();
+            setIsSentRequest(true);
+            setTimeout(function () {
+              setIsSentRequest(false);
+              setInputs({
+                reason: 'Zapytanie o cenę',
+                market: '',
+                firstName: '',
+                lastName: '',
+                phone: '',
+                email: '',
+                company: '',
+                address: '',
+                country: 'Poland',
+                cooperation: '',
+                content: '',
+              });
+            }, 4000);
           })
-          .then((data) => {
-            console.log(data);
-            //0 - new_members_total_created = 0 if email exists
-            //1 - if subscribed successfully
-            //{message: "Failed"} if name or email is empty
+          .catch((error) => console.log('error'));
+
+        if (isNewsletter) {
+          const userData = {
+            name: inputs.firstName,
+            email: inputs.email,
+          };
+          fetch('http://localhost:5000/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
           })
-          .catch((error) => console.log(error));
+            .then((response) => {
+              console.log(response);
+              return response.json();
+            })
+            .then((data) => {
+              const { total_created } = data;
+              setSubscribed(total_created);
+              setIsNewsletter(false);
+            })
+            .catch((error) => console.log(error));
+        }
       }
+    } else {
+      setErrors(errors);
     }
   };
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setInputs({ ...inputs, [name]: value });
+    setErrors({ ...errors, [name]: '' });
   };
   return (
     <form className='form form__contact' onSubmit={sendRequest}>
@@ -135,6 +179,9 @@ function ContactForm() {
         </select>
       </div>
       <div className='input-group'>
+        {errors.firstName && (
+          <small className='error'>{errors.firstName}</small>
+        )}
         <label className='input-label' htmlFor='firstName'>
           Imię <span className='input-required'>*</span>
         </label>
@@ -162,6 +209,7 @@ function ContactForm() {
         />
       </div>
       <div className='input-group'>
+        {errors.phone && <small className='error'>{errors.phone}</small>}
         <label className='input-label' htmlFor='phone'>
           Telefon <span className='input-required'>*</span>
         </label>
@@ -172,22 +220,23 @@ function ContactForm() {
           name='phone'
           value={inputs.phone}
           onChange={handleInput}
-          required
+          // required
         />
-        <small className='input-info'>+48 602191607</small>
+        <small className='input-info'>+48602191607</small>
       </div>
       <div className='input-group'>
+        {errors.email && <small className='error'>{errors.email}</small>}
         <label className='input-label' htmlFor='email'>
           Email <span className='input-required'>*</span>
         </label>
         <input
           className='input'
-          type='email'
+          type='text'
           id='email'
           name='email'
           value={inputs.email}
           onChange={handleInput}
-          required
+          // required
         />
         <small className='input-info'>biuro@pralma.pl</small>
       </div>
@@ -272,16 +321,18 @@ function ContactForm() {
         </select>
       </div>
       <div className='input-group'>
+        {errors.content && <small className='error'>{errors.content}</small>}
         <label className='input-label' htmlFor='content'>
           Treść <span className='input-required'>*</span>
         </label>
         <textarea
+          className='textarea'
           name='content'
           id='content'
           cols='40'
           rows='10'
           placeholder='Wpisz treść zapytania'
-          required
+          // required
           wrap='hard'
           value={inputs.content}
           onChange={handleInput}
@@ -307,6 +358,35 @@ function ContactForm() {
         ref={recaptchaRef}
         sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
       />
+      {isSentRequest && (
+        <div className='message message--request'>
+          <div className='message__content'>
+            <p className='message__text'>Twoje zapytanie zostało wysłane!</p>
+            <p className='message__text'>
+              Na skrzynkę otrzymasz potwierdzenie.
+            </p>
+            {subscribed === 1 && (
+              <div className='message--newsletter'>
+                <p className='message__text'>Newsletter!</p>
+                <p className='message__text'>
+                  Dziękujemy, że dołączyłeś do nas.
+                </p>
+                <p className='message__text'>
+                  Zajrzyj na swoją skrzynkę email i odbierz kupon rabatowy.
+                </p>
+              </div>
+            )}
+            {subscribed === 0 && (
+              <div className='message--newsletter'>
+                <p className='message__text'>Newsletter!</p>
+                <p className='message__text'>
+                  Już z nami jesteś. Dziękujemy...
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
       <Button label='Wyślij' btnType='submit' />
     </form>
   );

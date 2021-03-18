@@ -197,7 +197,7 @@ select {
   padding: $gap * 2 $gap * 3;
   font-size: $fontSize * 0.8;
   outline: none;
-  border: 1px solid $dark;
+  border: 2px solid rgba($color: $dark, $alpha: 0.05);
   border-radius: 0.4rem;
   background-color: transparent;
 }
@@ -215,6 +215,7 @@ textarea {
   outline: none;
   resize: vertical;
   width: 100%;
+  border: 2px solid rgba($color: $dark, $alpha: 0.05);
 }
 button {
   font-family: 'Quicksand', sans-serif;
@@ -826,6 +827,7 @@ button {
         'content .'
         'newsletter .'
         'recaptcha .'
+        'message-request message-request'
         'submit .';
     }
     column-gap: $gap * 2;
@@ -865,12 +867,24 @@ button {
     .input-group:nth-child(12) {
       grid-area: newsletter;
     }
-    button {
-      grid-area: submit;
-    }
+
     .recaptcha {
       grid-area: recaptcha;
       margin-bottom: $gap * 2;
+    }
+    .message--request {
+      grid-area: message-request;
+    }
+    button {
+      grid-area: submit;
+    }
+    .input,
+    .select,
+    .textarea {
+      &:focus {
+        border-width: 2px;
+        border-color: $dark;
+      }
     }
   }
   &__newsletter {
@@ -964,6 +978,25 @@ button {
       & + p {
         margin-bottom: $gap * 2;
       }
+    }
+  }
+  &--request {
+    max-width: 100%;
+    margin: 0;
+
+    .message__content {
+      border: none;
+      .message__text {
+        color: $dark;
+      }
+      .message__text:nth-child(2) {
+        font-style: italic;
+      }
+    }
+    .message--newsletter {
+      margin-top: $gap * 4;
+      padding-top: $gap * 4;
+      border-top: 1px solid grey;
     }
   }
 }
