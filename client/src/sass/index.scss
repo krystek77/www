@@ -715,7 +715,6 @@ button {
     }
     .info {
       display: block;
-      margin-bottom: $gap * 15;
       font-weight: 600;
       font-size: $fontSize;
       color: $dark;
@@ -828,6 +827,7 @@ button {
         'newsletter .'
         'recaptcha .'
         'message-request message-request'
+        'message-subscription message-subscription'
         'submit .';
     }
     column-gap: $gap * 2;
@@ -875,6 +875,9 @@ button {
     .message--request {
       grid-area: message-request;
     }
+    .message--subscription {
+      grid-area: message-subscription;
+    }
     button {
       grid-area: submit;
     }
@@ -891,6 +894,8 @@ button {
     padding: $gap * 10 $gap * 5 $gap * 5;
     border-radius: 0.6rem;
     border: 1px solid lighten($color: $primary, $amount: 26);
+    max-width: 360px;
+    margin: 0 auto;
     .input {
       background-color: $light;
       border-width: 2px;
@@ -929,20 +934,17 @@ button {
     }
   }
 }
-/* newsletter */
-.newsletter {
-  position: relative;
-  max-width: 360px;
+/* image */
+.image {
+  width: max-content;
   margin: 0 auto;
-  &__image {
-    width: 96px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) translateY(-60%);
-    background-color: lighten($color: $primary, $amount: 30);
-  }
 }
+.image.image--newsletter {
+  position: relative;
+  transform: translateY(40%);
+  background-color: lighten($color: $primary, $amount: 30);
+}
+
 /* error */
 .error {
   display: block;
@@ -951,52 +953,38 @@ button {
 }
 /* message */
 .message {
-  position: relative;
-  max-width: 576px;
-  margin: 0 auto;
-  &__image {
-    width: 96px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) translateY(-60%);
-    background-color: lighten($color: $primary, $amount: 30);
+  padding: $gap * 5;
+  text-align: center;
+
+  &__title {
+    font-size: $fontSize * 1.2;
+    font-weight: 600;
   }
   &__content {
-    padding: $gap * 10 $gap * 5 $gap * 5;
-    border-radius: 0.6rem;
-    border: 1px solid lighten($color: $primary, $amount: 26);
+    margin-bottom: $gap * 2;
+    font-weight: 500;
   }
-  &__text {
-    color: $light;
-    text-align: center;
-    font-weight: 600;
-    font-size: $fontSize * 1;
-    &:first-child {
-      color: $dark;
-      font-size: $fontSize * 1.5;
-      & + p {
-        margin-bottom: $gap * 2;
-      }
-    }
+  &__info {
+    font-style: italic;
+    font-size: $fontSize * 0.9;
   }
-  &--request {
-    max-width: 100%;
-    margin: 0;
+  &--btop-dark {
+    border-top: 1px solid $dark;
+  }
+}
 
-    .message__content {
-      border: none;
-      .message__text {
-        color: $dark;
-      }
-      .message__text:nth-child(2) {
-        font-style: italic;
-      }
-    }
-    .message--newsletter {
-      margin-top: $gap * 4;
-      padding-top: $gap * 4;
-      border-top: 1px solid grey;
-    }
+.message.message--newsletter {
+  border-radius: 0.6rem;
+  max-width: 578px;
+  margin: 0 auto;
+  border: 1px solid lighten($color: $primary, $amount: 26);
+  .message__title {
+    padding-top: $gap * 4;
+  }
+  .message__content {
+    color: $light;
+  }
+  .message__info {
+    color: $light;
   }
 }

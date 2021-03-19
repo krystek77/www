@@ -360,31 +360,26 @@ function ContactForm() {
       />
       {isSentRequest && (
         <div className='message message--request'>
-          <div className='message__content'>
-            <p className='message__text'>Twoje zapytanie zostało wysłane!</p>
-            <p className='message__text'>
-              Na skrzynkę otrzymasz potwierdzenie.
-            </p>
-            {subscribed === 1 && (
-              <div className='message--newsletter'>
-                <p className='message__text'>Newsletter!</p>
-                <p className='message__text'>
-                  Dziękujemy, że dołączyłeś do nas.
-                </p>
-                <p className='message__text'>
-                  Zajrzyj na swoją skrzynkę email i odbierz kupon rabatowy.
-                </p>
-              </div>
-            )}
-            {subscribed === 0 && (
-              <div className='message--newsletter'>
-                <p className='message__text'>Newsletter!</p>
-                <p className='message__text'>
-                  Już z nami jesteś. Dziękujemy...
-                </p>
-              </div>
-            )}
-          </div>
+          <p className='message__title'>Zapytanie</p>
+          <p className='message__content'>Twoje zapytanie zostało wysłane</p>
+          <p className='message__info'>
+            Na skrzynkę pocztową wyslaliśmy potwierdzenie
+          </p>
+        </div>
+      )}
+      {subscribed === 1 && (
+        <div className='message message--subscription message--btop-dark'>
+          <p className='message__title'>Newsletter</p>
+          <p className='message__content'>Pomyślnie zapisano na newsletter</p>
+          <p className='message__info'>
+            Sprawdź pocztę i odbierz kupon rabatowy
+          </p>
+        </div>
+      )}
+      {subscribed === 0 && (
+        <div className='message message--subscription message--btop-dark'>
+          <p className='message__title'>Newsletter</p>
+          <p className='message__content'>Już się zapisałeś na newsletter</p>
         </div>
       )}
       <Button label='Wyślij' btnType='submit' />

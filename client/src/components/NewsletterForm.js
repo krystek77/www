@@ -60,98 +60,74 @@ function NewsletterForm() {
       setErrors(errors);
     }
   };
+  let content = (
+    <form className='form form__newsletter' onSubmit={signupNewsletter}>
+      <div className='input-group'>
+        {errors.userName && <small className='error'>{errors.userName}</small>}
+        <label className='input-label' htmlFor='userName'>
+          Imię <span className='input-required'>*</span>
+        </label>
+        <input
+          className='input'
+          type='text'
+          id='userName'
+          name='userName'
+          onChange={handleName}
+          // required
+          value={userName}
+        />
+        <small className='input-info'>np. nowak77</small>
+      </div>
+      <div className='input-group'>
+        {errors.userEmail && (
+          <small className='error'>{errors.userEmail}</small>
+        )}
+        <label className='input-label' htmlFor='userEmail'>
+          Email <span className='input-required'>*</span>
+        </label>
+        <input
+          className='input'
+          type='text'
+          id='userEmail'
+          name='userEmail'
+          value={userEmail}
+          onChange={handleEmail}
+          // required
+        />
+        <small className='input-info'>np. nowak@onet.pl</small>
+      </div>
+      <Button label='Zapisz się' btnType='submit' type='button__newsletter' />
+    </form>
+  );
 
   if (subscribed === 1)
-    return (
-      <div className='message'>
-        <div className='message__image'>
-          <img
-            className='image'
-            src='../assets/images/newsletter_test.svg'
-            alt='newsletter'
-            width='96px'
-            height='76px'
-          />
-        </div>
-        <div className='message__content'>
-          <p className='message__text'>Newsletter!</p>
-          <p className='message__text'>Dziękujemy, że dołączyłeś do nas.</p>
-          <p className='message__text'>
-            Zajrzyj na swoją skrzynkę email i odbierz kupon rabatowy.
-          </p>
-        </div>
+    content = (
+      <div className='message message--newsletter'>
+        <p className='message__title'>Newsletter</p>
+        <p className='message__content'>Pomyślnie zapisano na newsletter</p>
+        <p className='message__info'>Sprawdź pocztę i odbierz kupon rabatowy</p>
       </div>
     );
   if (subscribed === 0)
-    return (
-      <div className='message'>
-        <div className='message__image'>
-          <img
-            className='image'
-            src='../assets/images/newsletter_test.svg'
-            alt='newsletter'
-            width='96px'
-            height='76px'
-          />
-        </div>
-        <div className='message__content'>
-          <p className='message__text'>Newsletter!</p>
-          <p className='message__text'>Już z nami jesteś. Dziękujemy...</p>
-        </div>
+    content = (
+      <div className='message message--newsletter'>
+        <p className='message__title'>Newsletter</p>
+        <p className='message__content'>Już się zapisałeś na newsletter</p>
       </div>
     );
 
   return (
-    <div className='newsletter'>
-      <div className='newsletter__image'>
+    <React.Fragment>
+      <div className='image image--newsletter'>
         <img
-          className='image'
           src='../assets/images/newsletter_test.svg'
           alt='newsletter'
           width='96px'
           height='76px'
         />
       </div>
-      <form className='form form__newsletter' onSubmit={signupNewsletter}>
-        <div className='input-group'>
-          {errors.userName && (
-            <small className='error'>{errors.userName}</small>
-          )}
-          <label className='input-label' htmlFor='userName'>
-            Imię <span className='input-required'>*</span>
-          </label>
-          <input
-            className='input'
-            type='text'
-            id='userName'
-            name='userName'
-            onChange={handleName}
-            // required
-            value={userName}
-          />
-          <small className='input-info'>np. nowak77</small>
-        </div>
-        <div className='input-group'>
-          {errors.userEmail && (
-            <small className='error'>{errors.userEmail}</small>
-          )}
-          <label className='input-label' htmlFor='userEmail'>
-            Email <span className='input-required'>*</span>
-          </label>
-          <input
-            className='input'
-            type='text'
-            id='userEmail'
-            name='userEmail'
-            value={userEmail}
-            onChange={handleEmail}
-            // required
-          />
-          <small className='input-info'>np. nowak@onet.pl</small>
-        </div>
-        <Button label='Zapisz się' btnType='submit' type='button__newsletter' />
-      </form>
-    </div>
+      {content}
+    </React.Fragment>
   );
 }
 export default NewsletterForm;
