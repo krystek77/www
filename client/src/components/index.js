@@ -10,6 +10,7 @@ import ButtonLink from './ButtonLink';
 import ContactForm from './ContactForm';
 import NewsletterForm from './NewsletterForm';
 import PostCard from './PostCard';
+import Divider from './Divider';
 import Footer from './Footer';
 export {
   App,
@@ -24,5 +25,6 @@ export {
   ContactForm,
   NewsletterForm,
   PostCard,
+  Divider,
   Footer,
 };

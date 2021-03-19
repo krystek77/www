@@ -20,7 +20,6 @@ function PostCards() {
           return <PostCard key={item.id} {...item} />;
         })}
       </div>
-      <div className='divider'></div>
     </React.Fragment>
   );
 }

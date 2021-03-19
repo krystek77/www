@@ -9,6 +9,7 @@ import {
   ButtonLink,
   ContactForm,
   NewsletterForm,
+  Divider,
   Footer,
 } from '../components';
 import { PostCards } from '../containers';
@@ -54,6 +55,7 @@ function App() {
               praesentium excepturi facilis nisi tempora nostrum aspernatur quam
               est, doloremque quisquam sit.
             </p>
+            <Divider />
             <ButtonLink to='/' label='Poznaj wszystkie' />
           </div>
         </section>
@@ -66,12 +68,15 @@ function App() {
               praesentium excepturi facilis nisi tempora nostrum aspernatur quam
               est, doloremque quisquam sit.
             </p>
+            <Divider />
+            <ButtonLink to='/produkty' label='Zobacz wszystkie' />
           </div>
         </section>
         <section className='section section--news'>
           <div className='container'>
             <h2 className='title'>Najnowsze wiadomości</h2>
             <PostCards />
+            <Divider />
             <ButtonLink to='/wiadomosci' label='Zobacz wszystkie' />
           </div>
         </section>
