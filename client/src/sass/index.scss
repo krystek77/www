@@ -698,7 +698,7 @@ button {
 /* section */
 .section {
   padding: $gap * 12 $gap * 3;
-  &__newsletter {
+  &--newsletter {
     background-color: lighten($color: $primary, $amount: 30);
     .title {
       text-align: center;

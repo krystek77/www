@@ -67,7 +67,7 @@ function App() {
             </p>
           </div>
         </section>
-        <section className='section'>
+        <section className='section section--news'>
           <div className='container'>
             <h2 className='title'>Najnowsze wiadomości</h2>
             <p>
@@ -109,7 +109,7 @@ function App() {
             <ButtonLink to='/' label='Wszystkie pytania' />
           </div>
         </section>
-        <section className='section section__newsletter'>
+        <section className='section section--newsletter'>
           <div className='container'>
             <h2 className='title'>Chcesz być na bieżąco</h2>
             <p className='text'>
