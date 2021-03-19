@@ -101,6 +101,7 @@ function App() {
               praesentium excepturi facilis nisi tempora nostrum aspernatur quam
               est, doloremque quisquam sit.
             </p>
+            <Divider />
             <ButtonLink to='/' label='Wszystkie pytania' />
           </div>
         </section>
