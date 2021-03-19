@@ -10,6 +10,7 @@ import ButtonLink from './ButtonLink';
 import ContactForm from './ContactForm';
 import NewsletterForm from './NewsletterForm';
 import PostCard from './PostCard';
+import Gallery from './Gallery';
 import Divider from './Divider';
 import Footer from './Footer';
 export {
@@ -25,6 +26,7 @@ export {
   ContactForm,
   NewsletterForm,
   PostCard,
+  Gallery,
   Divider,
   Footer,
 };

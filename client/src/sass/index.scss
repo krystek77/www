@@ -230,7 +230,6 @@ main {
 }
 .container {
   max-width: 1200px;
-  min-height: 480px;
   margin: 0 auto;
 }
 .btn {
@@ -707,6 +706,7 @@ main {
 /* section */
 .section {
   padding: $gap * 12 $gap * 3;
+  min-height: 480px;
   &--newsletter {
     background-color: lighten($color: $primary, $amount: 30);
     .title {
@@ -731,6 +731,11 @@ main {
   }
   &--news {
     background-color: lighten($color: $secondary, $amount: 46);
+  }
+  &--gallery {
+    padding-left: 0;
+    padding-right: 0;
+    border: $temporaryBorder;
   }
   //temporary
   &--banner {
@@ -1091,5 +1096,15 @@ main {
     img {
       transform: scale(1.2);
     }
+  }
+}
+/* gallery */
+.gallery {
+  border: $temporaryBorder;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(200px, 1fr));
+  grid-template-rows: repeat(4, 200px);
+  &__image {
+    border: 1px solid green;
   }
 }

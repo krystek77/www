@@ -9,6 +9,7 @@ import {
   ButtonLink,
   ContactForm,
   NewsletterForm,
+  Gallery,
   Divider,
   Footer,
 } from '../components';
@@ -102,6 +103,12 @@ function App() {
             </p>
             <ButtonLink to='/' label='Wszystkie pytania' />
           </div>
+        </section>
+        <section className='section section--gallery'>
+          <div className='container'>
+            <h2 className='title'>Galeria zdjęć zrealizowanych pralni</h2>
+          </div>
+          <Gallery />
         </section>
         <section className='section section--newsletter'>
           <div className='container'>
