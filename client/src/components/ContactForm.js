@@ -28,6 +28,7 @@ function ContactForm() {
 
   const sendRequest = (e) => {
     e.preventDefault();
+    /** simple validation */
     const errors = {};
     if (!inputs.firstName) errors.firstName = 'Imię nie może być puste';
     if (!inputs.email) errors.email = 'Email nie może być pusty';
@@ -41,59 +42,88 @@ function ContactForm() {
     if (inputs.content.length < 10)
       errors.content = 'Wiadomość musi mieć co najmniej 10 znaków';
 
+    const clearFields = () => {
+      setInputs({
+        reason: 'Zapytanie o cenę',
+        market: '',
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        company: '',
+        address: '',
+        country: 'Poland',
+        cooperation: '',
+        content: '',
+      });
+    };
+
     if (!Object.keys(errors).length) {
       const token = recaptchaRef.current.getValue();
       if (token) {
         const serviceID = 'pralma';
         const templateID = 'one';
 
-        send(
-          serviceID,
-          templateID,
-          inputs,
-          process.env.REACT_APP_EMAILJS_USER_ID
-        )
-          .then((response) => {
-            setIsSentRequest(true);
-            setTimeout(function () {
-              setIsSentRequest(false);
-              setInputs({
-                reason: 'Zapytanie o cenę',
-                market: '',
-                firstName: '',
-                lastName: '',
-                phone: '',
-                email: '',
-                company: '',
-                address: '',
-                country: 'Poland',
-                cooperation: '',
-                content: '',
-              });
-            }, 4000);
-          })
-          .catch((error) => console.log('error'));
+        const sendEmail = async () => {
+          try {
+            const response = await send(
+              serviceID,
+              templateID,
+              inputs,
+              process.env.REACT_APP_EMAILJS_USER_ID
+            );
+            return response;
+          } catch (error) {
+            return error;
+          }
+        };
 
-        if (isNewsletter) {
+        const subscribeNewsletter = async () => {
           const userData = {
             name: inputs.firstName,
             email: inputs.email,
           };
-          fetch('http://localhost:5000/subscribe', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userData),
-          })
+          try {
+            const response = await fetch('http://localhost:5000/subscribe', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(userData),
+            });
+            const data = await response.json();
+            return data;
+          } catch (error) {
+            return error;
+          }
+        };
+
+        if (isNewsletter) {
+          const request = sendEmail();
+          const newsletter = subscribeNewsletter();
+          Promise.all([request, newsletter])
             .then((response) => {
-              console.log(response);
-              return response.json();
-            })
-            .then((data) => {
-              const { total_created } = data;
+              const reqNewsletter = response[1];
+              const { total_created } = reqNewsletter;
+              setIsSentRequest(true);
               setSubscribed(total_created);
-              setIsNewsletter(false);
+              setTimeout(function () {
+                setIsSentRequest(false);
+                clearFields();
+                setIsNewsletter(false);
+                setSubscribed(2);
+              }, 4000);
+            })
+            .catch((error) => console.log(error));
+        } else {
+          const request = sendEmail();
+          request
+            .then(() => {
+              setIsSentRequest(true);
+              setTimeout(function () {
+                setIsSentRequest(false);
+                clearFields();
+              }, 4000);
             })
             .catch((error) => console.log(error));
         }
@@ -102,12 +132,14 @@ function ContactForm() {
       setErrors(errors);
     }
   };
+
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setInputs({ ...inputs, [name]: value });
     setErrors({ ...errors, [name]: '' });
   };
+
   return (
     <form className='form form__contact' onSubmit={sendRequest}>
       <div className='input-group'>
