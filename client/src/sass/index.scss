@@ -729,7 +729,7 @@ main {
     }
   }
   &--news {
-    background-color: lighten($color: $secondary, $amount: 45);
+    background-color: lighten($color: $secondary, $amount: 46);
   }
   //temporary
   &--banner {
@@ -1071,6 +1071,7 @@ main {
     }
   }
   &:hover {
+    background-color: lighten($color: $light, $amount: 100);
     color: $dark;
     img {
       transform: scale(1.2);
