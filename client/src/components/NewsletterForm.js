@@ -96,7 +96,7 @@ function NewsletterForm() {
         />
         <small className='input-info'>np. nowak@onet.pl</small>
       </div>
-      <Button label='Zapisz się' btnType='submit' type='button__newsletter' />
+      <Button label='Zapisz się' btnType='submit' type='button--newsletter' />
     </form>
   );
 

@@ -11,6 +11,7 @@ import {
   NewsletterForm,
   Footer,
 } from '../components';
+import { PostCards } from '../containers';
 
 function App() {
   return (
@@ -70,25 +71,8 @@ function App() {
         <section className='section section--news'>
           <div className='container'>
             <h2 className='title'>Najnowsze wiadomości</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum
-              quidem, quod recusandae laudantium in voluptate illum, esse
-              adipisci assumenda reiciendis illo et quam facilis animi
-              consequuntur impedit optio tempore officiis! Molestiae expedita
-              quia beatae iusto enim. Magnam autem, blanditiis iusto temporibus
-              ullam, aut debitis ad placeat ipsa unde aliquam doloremque
-              deleniti rem id delectus quia modi, cupiditate perspiciatis
-              voluptatum in. Blanditiis, voluptatem architecto mollitia
-              assumenda eaque at dignissimos, laboriosam perferendis reiciendis
-              cupiditate voluptas praesentium deleniti modi, provident velit
-              harum aliquid autem. Adipisci doloremque alias, iure soluta
-              voluptatem maiores explicabo tempora. Repellendus explicabo facere
-              vero omnis consequuntur doloribus ratione dolorem deleniti iste
-              sequi! Repudiandae laborum sed veritatis? Modi perferendis
-              nesciunt ducimus molestiae eum magnam, magni culpa est
-              voluptatibus totam ipsum dolores. Ut labore.
-            </p>
-            <ButtonLink to='/' label='Czytaj wszystkie' />
+            <PostCards />
+            <ButtonLink to='/' label='Zobacz wszystkie' />
           </div>
         </section>
         <section className='section'>

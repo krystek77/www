@@ -9,6 +9,7 @@ import Button from './Button';
 import ButtonLink from './ButtonLink';
 import ContactForm from './ContactForm';
 import NewsletterForm from './NewsletterForm';
+import PostCard from './PostCard';
 import Footer from './Footer';
 export {
   App,
@@ -22,5 +23,6 @@ export {
   ButtonLink,
   ContactForm,
   NewsletterForm,
+  PostCard,
   Footer,
 };

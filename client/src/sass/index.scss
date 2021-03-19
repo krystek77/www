@@ -205,6 +205,8 @@ input[type='checkbox'] {
   width: auto;
 }
 select {
+  width: 100%;
+  display: block;
   background-color: $light;
 }
 option {
@@ -219,6 +221,12 @@ textarea {
 }
 button {
   font-family: 'Quicksand', sans-serif;
+}
+aside,
+article,
+main {
+  width: 100%;
+  display: block;
 }
 .container {
   max-width: 1200px;
@@ -720,10 +728,13 @@ button {
       color: $dark;
     }
   }
+  &--news {
+    background-color: lighten($color: $secondary, $amount: 45);
+  }
 }
 .title {
   font-weight: 700;
-  margin-bottom: $gap * 6;
+  margin-bottom: $gap * 12;
   text-transform: uppercase;
   letter-spacing: -0.2rem;
 }
@@ -799,8 +810,25 @@ button {
   }
 }
 .button {
-  &__newsletter {
+  &--newsletter,
+  &--postcard {
     margin-left: auto;
+  }
+  &--postcard {
+    .button__label {
+      background-color: transparent;
+      color: $secondary;
+      border-color: transparent;
+    }
+    .button__arrow {
+      background-color: $secondary;
+      border-color: darken($color: $secondary, $amount: 10);
+    }
+    &:hover {
+      .button__arrow {
+        border-color: transparent;
+      }
+    }
   }
 }
 
@@ -944,7 +972,15 @@ button {
   transform: translateY(40%);
   background-color: lighten($color: $primary, $amount: 30);
 }
-
+/* divider */
+.divider {
+  width: 100%;
+  margin: 0 auto;
+  height: 1px;
+  background-color: rgba($color: $dark, $alpha: 0.1);
+  margin-top: $gap * 6;
+  margin-bottom: $gap * 6;
+}
 /* error */
 .error {
   display: block;
@@ -986,5 +1022,47 @@ button {
   }
   .message__info {
     color: $light;
+  }
+}
+/* postcards */
+.postcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  row-gap: $gap * 6;
+  column-gap: $gap * 6;
+}
+/* postcard */
+.postcard {
+  display: block;
+  // border: $temporaryBorder;
+  &__article {
+    .image {
+      width: 100%;
+      margin-bottom: $gap * 2;
+      overflow: hidden;
+      img {
+        transition: $transition;
+      }
+    }
+    .title {
+      margin-bottom: $gap * 2;
+      text-transform: capitalize;
+      font-weight: 500;
+      line-height: $lineHeight * 1.2;
+    }
+    .date {
+      margin-bottom: $gap * 2;
+      display: inline-block;
+      font-size: $fontSize * 0.8;
+    }
+    .description {
+      margin-bottom: $gap * 6;
+    }
+  }
+  &:hover {
+    color: $dark;
+    img {
+      transform: scale(1.2);
+    }
   }
 }
