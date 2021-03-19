@@ -72,7 +72,7 @@ function App() {
           <div className='container'>
             <h2 className='title'>Najnowsze wiadomości</h2>
             <PostCards />
-            <ButtonLink to='/' label='Zobacz wszystkie' />
+            <ButtonLink to='/wiadomosci' label='Zobacz wszystkie' />
           </div>
         </section>
         <section className='section'>

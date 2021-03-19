@@ -230,6 +230,7 @@ main {
 }
 .container {
   max-width: 1200px;
+  min-height: 480px;
   margin: 0 auto;
 }
 .btn {
@@ -1044,15 +1045,25 @@ main {
 }
 /* postcard */
 .postcard {
-  display: block;
-  // border: $temporaryBorder;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
   &__article {
+    flex-grow: 1;
     .image {
       width: 100%;
       margin-bottom: $gap * 2;
       overflow: hidden;
       img {
         transition: $transition;
+        object-fit: cover;
+        object-position: top center;
+        @media screen and (min-width: map-get($map: $breakpoints, $key: 768)) {
+          width: 360px;
+          height: 225px;
+        }
       }
     }
     .title {

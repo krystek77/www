@@ -1,22 +1,27 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../components';
-function PostCard({ children }) {
+
+const limitToWords = (str, limit) => {
+  return str.split(' ').slice(0, limit).join(' ') + ' [...]';
+};
+
+function PostCard(props) {
+  const { title, date, description, image, to } = props;
+
   return (
-    <Link to='' className='postcard'>
+    <Link to={to} className='postcard'>
       <article className='postcard__article'>
         <aside className='image'>
-          <img src='../assets/images/news_test_1.jpg' alt='news_test_1' />
+          <img
+            src={`../assets/images/${image.src}.jpg`}
+            alt={image.alt}
+            width='720px'
+            height='450px'
+          />
         </aside>
-        <h3 className='title'>
-          Wejdź na wyższy poziom czyszczenia z rozwiązaniam higienicznymi Primus
-        </h3>
-        <prev className='date'>February 1st, 2021</prev>
-        <p className='description'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel aliquam
-          ab sit, temporibus modi suscipit alias asperiores veniam earum amet
-          quae ex praesentium dolorum consectetur. Obcaecati soluta aut sint
-          doloremque?
-        </p>
+        <h3 className='title'>{title}</h3>
+        <span className='date'>{date}</span>
+        <p className='description'>{limitToWords(description, 25)}</p>
       </article>
 
       <Button btnType='button' label='Czytaj więcej' type='button--postcard' />
