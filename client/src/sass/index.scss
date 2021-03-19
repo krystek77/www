@@ -731,6 +731,17 @@ main {
   &--news {
     background-color: lighten($color: $secondary, $amount: 45);
   }
+  //temporary
+  &--banner {
+    height: 480px;
+    background-color: $dark;
+    p {
+      color: $light;
+      font-size: $fontSize * 4;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
 }
 .title {
   font-weight: 700;

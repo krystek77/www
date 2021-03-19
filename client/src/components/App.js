@@ -81,6 +81,11 @@ function App() {
             <ContactForm />
           </div>
         </section>
+        <section className='section section--banner'>
+          <div className='conatiner'>
+            <p>BANNER</p>
+          </div>
+        </section>
         <section className='section'>
           <div className='container'>
             <h2 className='title'>Popularne pytania</h2>
