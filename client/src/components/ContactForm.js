@@ -24,6 +24,7 @@ function ContactForm() {
   const [errors, setErrors] = React.useState({});
   const [isSentRequest, setIsSentRequest] = React.useState(false);
   const [subscribed, setSubscribed] = React.useState(2);
+  const [isSendingData, setIsSendingData] = React.useState(false);
   const recaptchaRef = React.useRef(null);
 
   const sendRequest = (e) => {
@@ -59,6 +60,7 @@ function ContactForm() {
     };
 
     if (!Object.keys(errors).length) {
+      setIsSendingData(true);
       const token = recaptchaRef.current.getValue();
       if (token) {
         const serviceID = 'pralma';
@@ -103,6 +105,7 @@ function ContactForm() {
           const newsletter = subscribeNewsletter();
           Promise.all([request, newsletter])
             .then((response) => {
+              setIsSendingData(false);
               const reqNewsletter = response[1];
               const { total_created } = reqNewsletter;
               setIsSentRequest(true);
@@ -119,6 +122,7 @@ function ContactForm() {
           const request = sendEmail();
           request
             .then(() => {
+              setIsSendingData(false);
               setIsSentRequest(true);
               setTimeout(function () {
                 setIsSentRequest(false);
@@ -139,7 +143,6 @@ function ContactForm() {
     setInputs({ ...inputs, [name]: value });
     setErrors({ ...errors, [name]: '' });
   };
-
   return (
     <form className='form form__contact' onSubmit={sendRequest}>
       <div className='input-group'>
@@ -390,6 +393,11 @@ function ContactForm() {
         ref={recaptchaRef}
         sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
       />
+      {isSendingData && (
+        <div className='message message--data-sending'>
+          <p className='message__title'>Trwa wysyłanie danych ...</p>
+        </div>
+      )}
       {isSentRequest && (
         <div className='message message--request'>
           <p className='message__title'>Zapytanie</p>

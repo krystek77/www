@@ -866,6 +866,7 @@ main {
         'content .'
         'newsletter .'
         'recaptcha .'
+        'message-data-sending message-data-sending'
         'message-request message-request'
         'message-subscription message-subscription'
         'submit .';
@@ -911,6 +912,9 @@ main {
     .recaptcha {
       grid-area: recaptcha;
       margin-bottom: $gap * 2;
+    }
+    .message--data-sending {
+      grid-area: message-data-sending;
     }
     .message--request {
       grid-area: message-request;
