@@ -1,11 +1,18 @@
+import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import { FaWindowClose } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
-import { connectedMenuAndLinks } from '../fixtures';
+import { connectedMenuAndLinks as data } from '../fixtures';
 import { Authmenu } from '../components';
+import { MenuLinksContainer } from '../containers';
 
 function Sidebar() {
   const { isSidebarOpen, closeSidebar } = useNavigationContext();
+  const [submenus, setSubmenus] = React.useState([]);
+  React.useEffect(() => {
+    setSubmenus(data);
+    return () => {};
+  }, []);
   return isSidebarOpen ? (
     <aside className='sidebar'>
       <div className='sidebar__content'>
@@ -17,7 +24,7 @@ function Sidebar() {
         >
           <FaWindowClose />
         </button>
-        {connectedMenuAndLinks.map((item) => {
+        {submenus.map((item) => {
           const { id, label, to, links } = item;
 
           return (
@@ -25,27 +32,15 @@ function Sidebar() {
               <Link to={to} className='submenu__title' onClick={closeSidebar}>
                 {label}
               </Link>
-              {links.length > 0 ? (
-                <ul className='submenu__list'>
-                  {links.map((item) => {
-                    return (
-                      <li className='submenu__item' key={item.id}>
-                        <Link
-                          className='submenu__link'
-                          to={`${to}${item.to}`}
-                          onClick={closeSidebar}
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : null}
+              <MenuLinksContainer
+                links={links}
+                mainTo={to}
+                callback={closeSidebar}
+              />
             </div>
           );
         })}
-        <Authmenu sidebar={true} />
+        <Authmenu place='auth-menu--sidebar' />
       </div>
       <div className='backdrop'></div>
     </aside>

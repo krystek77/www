@@ -1,14 +1,14 @@
 import { NavLink as Link } from 'react-router-dom';
 import { FiLogOut, FiLogIn } from 'react-icons/fi';
 import { useNavigationContext } from '../contexts/navigation';
-function Authmenu({ sidebar }) {
+function Authmenu({ place = '' }) {
   const { closeSidebar, closeSubmenu } = useNavigationContext();
   const close = () => {
     closeSidebar();
     closeSubmenu();
   };
   return (
-    <ul className={`auth-menu ${sidebar && 'auth-menu--sidebar'}`}>
+    <ul className={`auth-menu ${place}`}>
       <li className='auth-menu__item'>
         <Link
           className='auth-menu__link'

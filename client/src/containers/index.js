@@ -1,2 +1,3 @@
 import PostCards from './PostCards';
-export { PostCards };
+import MenuLinksContainer from './MenuLinks';
+export { PostCards, MenuLinksContainer };

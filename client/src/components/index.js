@@ -3,6 +3,8 @@ import Toolbar from './Toolbar';
 import Authmenu from './Authmenu';
 import Navigation from './Navigation';
 import Submenu from './Submenu';
+import MenuLink from './MenuLink';
+import MenuLinks from './MenuLinks';
 import Sidebar from './Sidebar';
 import Hero from './Hero';
 import Button from './Button';
@@ -19,6 +21,8 @@ export {
   Authmenu,
   Navigation,
   Submenu,
+  MenuLink,
+  MenuLinks,
   Sidebar,
   Hero,
   Button,
