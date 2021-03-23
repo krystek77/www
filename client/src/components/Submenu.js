@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaWindowClose } from 'react-icons/fa';
 import { useNavigationContext } from '../contexts/navigation';
 import { NavLink as Link } from 'react-router-dom';
 
@@ -24,6 +25,14 @@ function Submenu() {
   }, [menu, submenuDimension]);
   return isSubmenuOpen && menu && menu.links.length > 0 ? (
     <div className='submenu submenu--large' ref={submenuRef}>
+      <button
+        className='btn btn--close'
+        type='button'
+        onClick={closeSubmenu}
+        title='close'
+      >
+        <FaWindowClose />
+      </button>
       <Link to={menu.to} className='submenu__title' onClick={closeSubmenu}>
         {menu.label}
       </Link>
