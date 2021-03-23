@@ -31,9 +31,19 @@ function Footer() {
           })}
         </div>
         <Authmenu place='auth-menu--footer' />
-        <p className='footer__copyright'>
-          &copy; 2021 by Krystian Wrona. Wszystkie prawa zastrzeżone
-        </p>
+        <div className='footer__policy'>
+          <div className='footer__group'>
+            <Link className='footer__link' to='/polityka-prywatnosci'>
+              Polityka prywatności
+            </Link>
+            <Link className='footer__link' to='/warunki-uzytkowania'>
+              Warunki użytkowania
+            </Link>
+          </div>
+          <p className='footer__copyright'>
+            &copy; 2021 by Krystian Wrona. Wszystkie prawa zastrzeżone
+          </p>
+        </div>
       </div>
     </footer>
   );
