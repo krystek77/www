@@ -55,7 +55,7 @@ function Gallery() {
       </div>
       <div className='gallery__image' data-position='6'>
         <img
-          src='../assets/images/gallery/6.png'
+          src='../assets/images/gallery/6.webp'
           alt='pralnia_6'
           width='960px'
           height='600px'
