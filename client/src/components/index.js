@@ -15,6 +15,7 @@ import PostCard from './PostCard';
 import Gallery from './Gallery';
 import Divider from './Divider';
 import Address from './Address';
+import BusinessPartners from './BusinessPartners';
 import Footer from './Footer';
 export {
   App,
@@ -34,5 +35,6 @@ export {
   Gallery,
   Divider,
   Address,
+  BusinessPartners,
   Footer,
 };
