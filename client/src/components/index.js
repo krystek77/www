@@ -14,6 +14,7 @@ import NewsletterForm from './NewsletterForm';
 import PostCard from './PostCard';
 import Gallery from './Gallery';
 import Divider from './Divider';
+import Address from './Address';
 import Footer from './Footer';
 export {
   App,
@@ -32,5 +33,6 @@ export {
   PostCard,
   Gallery,
   Divider,
+  Address,
   Footer,
 };

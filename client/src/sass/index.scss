@@ -734,6 +734,12 @@ main {
     row-gap: $gap * 4;
     margin-bottom: $gap * 8;
   }
+  @media screen and (min-width: 400px) {
+    .address {
+      grid-column: 1/3;
+      grid-row: 1/2;
+    }
+  }
   &__copyright {
     border-top: 1px solid rgba($color: $dark, $alpha: 0.05);
     text-align: center;
@@ -1205,5 +1211,39 @@ main {
       grid-column: 5/6;
       grid-row: 4/5;
     }
+  }
+}
+.address {
+  width: 100%;
+  @media screen and (min-width: map-get($map: $breakpoints, $key:768 )) {
+    max-width: 360px;
+  }
+  border: 1px solid rgba($color: $darkprimary, $alpha: 0.1);
+  padding: $gap * 2;
+  border-radius: 0.6rem;
+  &__name {
+    font-weight: 600;
+    margin-bottom: $gap * 4;
+    font-style: italic;
+  }
+  &__street {
+    font-style: italic;
+    margin-bottom: $gap * 2;
+  }
+  &__phone,
+  &__email {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-style: italic;
+    &:hover {
+      font-weight: 600;
+      color: $darkprimary;
+    }
+  }
+  &__icon {
+    margin-right: $gap * 2;
+    color: $dark;
+    font-size: $fontSize * 1.2;
   }
 }

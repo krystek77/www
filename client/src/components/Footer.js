@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink as Link } from 'react-router-dom';
 import { connectedMenuAndLinks as data } from '../fixtures';
 import { MenuLinksContainer } from '../containers';
-import { Authmenu } from '../components';
+import { Authmenu, Address } from '../components';
 
 console.log(data);
 function Footer() {
@@ -17,6 +17,7 @@ function Footer() {
     <footer className='footer'>
       <div className='container'>
         <div className='footer__submenus'>
+          <Address />
           {submenus.map((item) => {
             const { id, label, to, links } = item;
             return (
