@@ -734,7 +734,7 @@ main {
     row-gap: $gap * 4;
     margin-bottom: $gap * 8;
   }
-  @media screen and (min-width: 400px) {
+  @media screen and (min-width: 440px) {
     .address {
       grid-column: 1/3;
       grid-row: 1/2;
