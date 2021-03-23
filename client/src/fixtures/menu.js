@@ -12,7 +12,7 @@ const menu = [
     id: '4',
     label: 'składowanie prania',
     to: '/skladowanie-prania',
-    links: [],
+    links: ['16'],
   },
   {
     id: '5',
@@ -205,6 +205,18 @@ const links = [
       alt: 'bez wirowania, normalnoobrotowe, wsyokoobrotowe',
     },
     to: '/bariery-higieny',
+    isIcon: true,
+  },
+  {
+    id: '16',
+    label: 'Regały',
+    description:
+      'Phosfluorescently monetize premium partnerships after high-quality initiatives. Collaboratively.',
+    image: {
+      src: 'regały',
+      alt: 'regały jezdne, regały stacjonarne',
+    },
+    to: '/regaly',
     isIcon: true,
   },
 ];
