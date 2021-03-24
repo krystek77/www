@@ -20,18 +20,22 @@ import {
 import { PostCards } from '../containers';
 
 function App() {
-  const [handleCookie, setHandleCookie] = React.useState(true);
+  const [handleCookie, setHandleCookie] = React.useState(() => {
+    const isCookiesClause = window.localStorage.getItem('isCookiesClause');
+    return isCookiesClause === null ? true : false;
+  });
+  const handleCookies = () => {
+    window.localStorage.setItem('isCookiesClause', false);
+    setHandleCookie(false);
+  };
+
   return (
     <Fragment>
       <Router>
         <Modal isShow={handleCookie} type='modal--cookies'>
           <p className='modal__text'>
-            Wykorzystujemy ciasteczka (ang. cookies) oraz podobne technologie w
-            celu świadczenia usług, dostosowania serwisu do indywidualnych
-            preferencji użytkowników oraz w celach statystycznych i reklamowych.
-            Możesz zawsze wyłączyć ten mechanizm w ustawieniach przeglądarki.
-            Korzystanie z naszego serwisu bez zmiany ustawień przeglądarki
-            oznacza, że cookies będą zapisane w pamięci urządzenia.
+            Serwis wykorzystuje pliki cookies. Korzystając ze strony wyrażasz
+            zgodę na wykorzystywanie plików cookies.
             <Link to='/polityka-prywatnosci' className='modal__link'>
               Więcej w polityce prywatności.
             </Link>
@@ -39,7 +43,7 @@ function App() {
           <Button
             label='Nie pokazuj'
             btnType='button'
-            handleClick={() => setHandleCookie(false)}
+            handleClick={handleCookies}
           />
         </Modal>
         <Toolbar />
