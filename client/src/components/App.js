@@ -1,4 +1,6 @@
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { NavLink as Link } from 'react-router-dom';
 import { Fragment } from 'react';
 import {
   Toolbar,
@@ -12,13 +14,34 @@ import {
   Gallery,
   Divider,
   Footer,
+  Modal,
+  Button,
 } from '../components';
 import { PostCards } from '../containers';
 
 function App() {
+  const [handleCookie, setHandleCookie] = React.useState(true);
   return (
     <Fragment>
       <Router>
+        <Modal isShow={handleCookie} type='modal--cookies'>
+          <p className='modal__text'>
+            Wykorzystujemy ciasteczka (ang. cookies) oraz podobne technologie w
+            celu świadczenia usług, dostosowania serwisu do indywidualnych
+            preferencji użytkowników oraz w celach statystycznych i reklamowych.
+            Możesz zawsze wyłączyć ten mechanizm w ustawieniach przeglądarki.
+            Korzystanie z naszego serwisu bez zmiany ustawień przeglądarki
+            oznacza, że cookies będą zapisane w pamięci urządzenia.
+            <Link to='/polityka-prywatnosci' className='modal__link'>
+              Więcej w polityce prywatności.
+            </Link>
+          </p>
+          <Button
+            label='Nie pokazuj'
+            btnType='button'
+            handleClick={() => setHandleCookie(false)}
+          />
+        </Modal>
         <Toolbar />
         <Navigation />
         <Hero />
