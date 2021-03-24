@@ -1,11 +1,10 @@
 import { FaWindowClose } from 'react-icons/fa';
-function Modal({ isShow = false, type, handleModal, clearImage, children }) {
+function Modal({ isShow = false, type, handleModal, children }) {
   return isShow ? (
     <div
       className={`modal ${type ? type : ''}`}
       onClick={() => {
         handleModal(false);
-        clearImage({ src: '', alt: '' });
       }}
     >
       <div className='modal__content'>
@@ -14,7 +13,6 @@ function Modal({ isShow = false, type, handleModal, clearImage, children }) {
           type='button'
           onClick={() => {
             handleModal(false);
-            clearImage({ src: '', alt: '' });
           }}
           title='close'
         >

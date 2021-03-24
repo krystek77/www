@@ -38,14 +38,18 @@ function Gallery() {
     };
   }, [currentIndexImage]);
 
+  React.useEffect(() => {
+    if (!isOpenModal) {
+      setImage({ src: '', alt: '' });
+    }
+  }, [isOpenModal]);
+
   return (
     <React.Fragment>
       {/** modal */}
       <Modal
         isShow={isOpenModal}
-        callback={{ setIsOpenModal, setImage }}
         handleModal={setIsOpenModal}
-        clearImage={setImage}
         type='modal--gallery'
       >
         <img className='modal__image' src={image.src} alt={image.alt} />
