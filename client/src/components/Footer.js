@@ -4,7 +4,6 @@ import { connectedMenuAndLinks as data } from '../fixtures';
 import { MenuLinksContainer } from '../containers';
 import { Authmenu, Address, BusinessPartners } from '../components';
 
-console.log(data);
 function Footer() {
   const [submenus, setSubmenus] = React.useState([]);
 

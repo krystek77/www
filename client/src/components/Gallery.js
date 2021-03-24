@@ -1,107 +1,82 @@
 import React from 'react';
-const galleryImages = Array.from({ length: 20 }, (item, index) =>
-  String(index + 1)
-);
-const galleryLayout = Array.from({ length: 3 }, (item, index) =>
-  String(index + 1)
-);
-console.log(galleryImages);
-console.log(galleryLayout);
+import { Modal } from '../components';
+import { galleryImages as data } from '../fixtures';
 
 function Gallery() {
   const [images, setImages] = React.useState([]);
-  React.useEffect(() => {}, []);
+  const [isOpenModal, setIsOpenModal] = React.useState(false);
+  const [image, setImage] = React.useState({ src: '', alt: '' });
+  const [currentIndexImage, setCurrentIndexImage] = React.useState(() => {
+    return Math.floor(Math.random() * 11);
+  });
+
+  const handleOpeningModal = (e) => {
+    const src = e.target.src;
+    const alt = e.target.alt;
+    const image = { src, alt };
+    setImage(image);
+    setIsOpenModal(true);
+  };
+
+  React.useEffect(() => {
+    const choosenImages = data.sort(() => Math.random() - 0.5).slice(0, 11);
+    setImages(choosenImages);
+
+    return () => {};
+  }, []);
+
+  React.useEffect(() => {
+    const timer = setTimeout(function () {
+      let nextIndexImage = Math.floor(Math.random() * 11);
+      while (currentIndexImage === nextIndexImage) {
+        nextIndexImage = Math.floor(Math.random() * 11);
+      }
+      setCurrentIndexImage(nextIndexImage);
+    }, 3000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [currentIndexImage]);
+
   return (
-    <div className='gallery' data-layout='1'>
-      <div className='gallery__image' data-position='1'>
-        <img
-          src='../assets/images/gallery/1.png'
-          alt='pralnia_1'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='2'>
-        <img
-          src='../assets/images/gallery/2.png'
-          alt='pralnia_2'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='3'>
-        <img
-          src='../assets/images/gallery/3.png'
-          alt='pralnia_3'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='4'>
-        <img
-          src='../assets/images/gallery/4.png'
-          alt='pralnia_4'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='5'>
-        <img
-          src='../assets/images/gallery/5.png'
-          alt='pralnia_5'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='6'>
-        <img
-          src='../assets/images/gallery/6.webp'
-          alt='pralnia_6'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='7'>
-        <img
-          src='../assets/images/gallery/7.png'
-          alt='pralnia_7'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='8'>
-        <img
-          src='../assets/images/gallery/8.png'
-          alt='pralnia_8'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='9'>
-        <img
-          src='../assets/images/gallery/9.png'
-          alt='pralnia_9'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='10'>
-        <img
-          src='../assets/images/gallery/10.png'
-          alt='pralnia_10'
-          width='960px'
-          height='600px'
-        />
-      </div>
-      <div className='gallery__image' data-position='11'>
-        <img
-          src='../assets/images/gallery/11.png'
-          alt='pralnia_11'
-          width='960px'
-          height='600px'
-        />
-      </div>
-    </div>
+    <React.Fragment>
+      {/** modal */}
+      <Modal
+        isShow={isOpenModal}
+        callback={{ setIsOpenModal, setImage }}
+        handleModal={setIsOpenModal}
+        clearImage={setImage}
+        type='modal--gallery'
+      >
+        <img className='modal__image' src={image.src} alt={image.alt} />
+        <p className='modal__info'>{image.alt}</p>
+      </Modal>
+      {/** gallery */}
+      {images.length > 0 ? (
+        <div className='gallery' data-layout='1'>
+          {images.map((item, index) => {
+            const { id, src, alt } = item;
+            return (
+              <div
+                className='gallery__image'
+                data-position={index + 1}
+                key={id}
+              >
+                <img
+                  className={index === currentIndexImage ? 'active' : ''}
+                  src={`../assets/images/gallery/${src}.webp`}
+                  alt={alt}
+                  width='960px'
+                  height='600px'
+                  onClick={handleOpeningModal}
+                />
+                <p className='gallery__info'>{alt}</p>
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
+    </React.Fragment>
   );
 }
 export default Gallery;

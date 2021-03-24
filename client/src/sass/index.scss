@@ -803,7 +803,6 @@ main {
   &--gallery {
     padding-left: 0;
     padding-right: 0;
-    border: $temporaryBorder;
   }
   //temporary
   &--banner {
@@ -1175,10 +1174,44 @@ main {
   &__image {
     border: 1px solid $dark;
     overflow: hidden;
+    cursor: pointer;
+    position: relative;
     img {
       object-fit: cover;
       object-position: top;
+      filter: grayscale(1);
+      transition: $transition;
+      &:hover {
+        filter: none;
+        transform: scale(1.1);
+        & + .gallery__info {
+          pointer-events: none;
+          transform: translateX(0%);
+        }
+      }
+      &.active {
+        filter: none;
+        transform: scale(1.1);
+        & + .gallery__info {
+          pointer-events: none;
+          transform: translateX(0%);
+        }
+      }
     }
+  }
+  &__info {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    transform: translateX(-100%);
+    background-color: $dark;
+    color: $light;
+    font-weight: 600;
+    font-size: $fontSize;
+    width: max-content;
+    padding: $gap $gap * 2;
+    text-transform: capitalize;
+    transition: $transition;
   }
   @media screen and (min-width: map-get($map: $breakpoints, $key: 1200)) {
     grid-template-columns: repeat(5, minmax(320px, 1fr));
@@ -1285,6 +1318,45 @@ main {
     transition: $transition;
     &.active {
       filter: none;
+    }
+  }
+}
+/* modal */
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding: $gap * 4;
+
+  &__content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.6rem;
+    background-color: $light;
+    padding: $gap * 4;
+    max-width: max-content;
+  }
+
+  .modal__image {
+    border: 1px solid $dark;
+    border-radius: 0.6rem;
+    margin-top: $gap * 4;
+    filter: none;
+  }
+  .modal__info {
+    margin-top: $gap * 4;
+    font-weight: 600;
+    text-align: center;
+  }
+  &--gallery {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba($color: $dark, $alpha: 0.8);
+    .modal__image {
+      max-height: 600px;
     }
   }
 }

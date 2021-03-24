@@ -17,6 +17,7 @@ import Divider from './Divider';
 import Address from './Address';
 import BusinessPartners from './BusinessPartners';
 import Footer from './Footer';
+import Modal from './Modal';
 export {
   App,
   Toolbar,
@@ -37,4 +38,5 @@ export {
   Address,
   BusinessPartners,
   Footer,
+  Modal,
 };

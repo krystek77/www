@@ -8,7 +8,6 @@ function BusinessPartners() {
   React.useEffect(() => {
     setData(businessPartners);
     const timer = setTimeout(function () {
-      console.log(currentImage);
       const lastIndex = data.length - 1;
       if (currentImage === lastIndex) {
         setCurrentImage(0);
@@ -19,7 +18,7 @@ function BusinessPartners() {
     return () => {
       clearTimeout(timer);
     };
-  }, [currentImage]);
+  }, [currentImage, data.length]);
 
   return data.length > 0 ? (
     <div className='business-partners'>

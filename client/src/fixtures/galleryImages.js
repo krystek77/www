@@ -1,0 +1,16 @@
+export const galleryImages = [
+  { id: '1', src: '1', alt: 'Pralnia z barierą higieny' },
+  { id: '2', src: '2', alt: 'Pralnia_2' },
+  { id: '3', src: '3', alt: 'Pralnia_3' },
+  { id: '4', src: '4', alt: 'Pralnia_4' },
+  { id: '5', src: '5', alt: 'Pralnia_5' },
+  { id: '6', src: '6', alt: 'Pralnia samoobsługowa w apartamentowcu' },
+  { id: '7', src: '7', alt: 'Pralnia_7' },
+  { id: '8', src: '8', alt: 'Pralnia_8' },
+  { id: '9', src: '9', alt: 'Pralnia samoobsługowa usługowa' },
+  { id: '10', src: '10', alt: 'Pralnia_10' },
+  { id: '11', src: '11', alt: 'Pralnia samoobsługowa usługowa' },
+  { id: '12', src: '12', alt: 'Pralnia_12' },
+  { id: '13', src: '13', alt: 'Pralnia_13' },
+  { id: '14', src: '14', alt: 'Pralnia_14' },
+];
